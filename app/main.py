@@ -15,6 +15,23 @@ from app.model import load_model, predict, get_valid_plants, resolve_plant_prefi
 from app.schemas import PredictionResponse, HealthResponse
 
 
+# CORS Configuration
+default_origins = [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "http://localhost:5173",
+    "http://localhost:5176",
+    "http://127.0.0.1:5173",
+    "http://127.0.0.1:5176",
+    "https://cropydeals.cropgenapp.com",
+    "https://app.cropgenapp.com",
+    "https://admin.cropgenapp.com",
+    "https://biodrops.cropgenapp.com",
+    "https://satagro.ai",
+    "https://app.satagro.ai",
+]
+
+
 # Lifespan: load model once at startup 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -33,7 +50,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # tighten this in production
+    allow_origins=default_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )
