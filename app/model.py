@@ -4,6 +4,7 @@ weight loading, image preprocessing, and inference.
 """
 
 import os
+import sys
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -142,7 +143,23 @@ def load_model(weights_path: str = "models/plant-disease-model-complete.pth") ->
     model  = ResNet9(in_channels=3, num_diseases=NUM_CLASSES)
 
     if os.path.exists(weights_path):
-        state_dict = torch.load(weights_path, map_location=device)
+        # The checkpoint was saved via torch.save(model, ...) in a Kaggle notebook
+        # where ResNet9 lived in __main__.  When pickle deserializes it, it looks for
+        # ResNet9 in __main__ — but inside uvicorn's worker that module is __mp_main__
+        # and the class is nowhere to be found.  Temporarily injecting our class into
+        # sys.modules['__main__'] makes pickle resolve it correctly.
+        sys.modules["__main__"].ResNet9 = ResNet9
+
+        checkpoint = torch.load(weights_path, map_location=device, weights_only=False)
+
+        # Support both checkpoint formats:
+        #   (a) full model object  → extract its state_dict
+        #   (b) plain state_dict   → use directly
+        if isinstance(checkpoint, nn.Module):
+            state_dict = checkpoint.state_dict()
+        else:
+            state_dict = checkpoint
+
         model.load_state_dict(state_dict)
         print(f"[disease-service] ✅  Loaded weights from '{weights_path}' on {device}")
     else:
