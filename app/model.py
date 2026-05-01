@@ -1,8 +1,3 @@
-"""
-Model definition (ResNet9 — exactly matches the Kaggle notebook architecture),
-weight loading, image preprocessing, and inference.
-"""
-
 import os
 import sys
 import torch
