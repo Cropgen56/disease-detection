@@ -132,7 +132,7 @@ class ResNet9(nn.Module):
 
 # Model loading 
 
-def load_model(weights_path: str = "models/plant-disease-model.pth") -> ResNet9:
+def load_model(weights_path: str = "models/plant-disease-model-complete.pth") -> ResNet9:
     """
     Build the ResNet9 and load weights from disk.
     Falls back to random weights with a warning if the .pth file is not found
@@ -149,7 +149,7 @@ def load_model(weights_path: str = "models/plant-disease-model.pth") -> ResNet9:
         print(
             f"[disease-service] ⚠️   Weights file '{weights_path}' not found. "
             "Running with random weights — predictions will be meaningless.\n"
-            "Train the model using the Kaggle notebook and save as 'models/plant-disease-model.pth'."
+            "Train the model using the Kaggle notebook and save as 'models/plant-disease-model-complete.pth'."
         )
 
     model.to(device)
