@@ -1,0 +1,287 @@
+import json
+import logging
+from pathlib import Path
+from typing import Dict, List, Tuple, Optional
+
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
+import cv2
+import numpy as np
+import torch
+import torch.nn as nn
+from PIL import Image
+import timm
+from ultralytics import YOLO
+
+logger = logging.getLogger(__name__)
+
+# Device Configuration: Support MPS (Apple Silicon), CUDA (NVIDIA), and CPU
+if torch.backends.mps.is_available():
+    DEVICE = torch.device("mps")
+elif torch.cuda.is_available():
+    DEVICE = torch.device("cuda")
+else:
+    DEVICE = torch.device("cpu")
+
+logger.info(f"Using device: {DEVICE}")
+
+# Configuration constants matching training notebooks
+NORM_MEAN = (0.5, 0.5, 0.5)
+NORM_STD = (0.5, 0.5, 0.5)
+
+# --- Preprocessing Transforms ---
+
+def get_transforms(img_size: int, direct_resize: bool = False) -> A.Compose:
+    """
+    Builds the inference transform pipeline.
+    
+    - CenterCrop: Resizes to 256x256, then center crops to img_size.
+    - DirectResize: Resizes directly to img_size.
+    """
+    if direct_resize:
+        return A.Compose([
+            A.Resize(img_size, img_size, interpolation=cv2.INTER_CUBIC),
+            A.Normalize(mean=NORM_MEAN, std=NORM_STD),
+            ToTensorV2(),
+        ])
+    else:
+        return A.Compose([
+            A.Resize(256, 256, interpolation=cv2.INTER_CUBIC),
+            A.CenterCrop(img_size, img_size),
+            A.Normalize(mean=NORM_MEAN, std=NORM_STD),
+            ToTensorV2(),
+        ])
+
+
+# --- Model Management State ---
+
+class ModelManager:
+    def __init__(self, weights_dir: Path = Path("weights")):
+        self.weights_dir = weights_dir
+        
+        # Phase 1: Crop Classification
+        self.phase1_model: Optional[nn.Module] = None
+        self.phase1_yolo: Optional[YOLO] = None
+        self.phase1_class_to_idx: Optional[Dict[str, int]] = None
+        self.phase1_idx_to_class: Optional[Dict[int, str]] = None
+        
+        # Phase 2: Disease Detection
+        self.phase2_model: Optional[nn.Module] = None
+        self.phase2_class_to_idx: Optional[Dict[str, int]] = None
+        self.phase2_idx_to_class: Optional[Dict[int, str]] = None
+        self.crop_disease_idx_map: Optional[Dict[str, List[int]]] = None
+
+    def is_phase1_loaded(self) -> bool:
+        return (self.phase1_model is not None or self.phase1_yolo is not None) and self.phase1_idx_to_class is not None
+
+    def is_phase2_loaded(self) -> bool:
+        return self.phase2_model is not None and self.phase2_idx_to_class is not None and self.crop_disease_idx_map is not None
+
+    def load_phase1(self) -> bool:
+        """Loads Phase 1 crop classifier model weights and mappings."""
+        # 1. Load class mapping
+        crop_class_map_path = self.weights_dir / "class_to_idx_phase1.json"
+        if not crop_class_map_path.exists():
+            logger.warning(f"Phase 1 class mapping missing at {crop_class_map_path}")
+            return False
+            
+        try:
+            with open(crop_class_map_path, "r") as f:
+                self.phase1_class_to_idx = json.load(f)
+            self.phase1_idx_to_class = {int(v) if str(v).isdigit() else v: k for k, v in self.phase1_class_to_idx.items()}
+            # Ensure indices are integer keys
+            self.phase1_idx_to_class = {int(k): v for k, v in self.phase1_idx_to_class.items()}
+        except Exception as e:
+            logger.error(f"Failed to parse Phase 1 class map: {e}")
+            return False
+
+        # 2. Check and load model weight files
+        effnet_path = self.weights_dir / "efficientnet_b1_crop_mini.pt"
+        yolo_path = self.weights_dir / "yolo11n_crop_mini.pt"  # or user's best.pt renamed
+
+        if effnet_path.exists():
+            try:
+                logger.info(f"Loading Phase 1 EfficientNet-B1 model from {effnet_path}")
+                num_classes = len(self.phase1_class_to_idx)
+                model = timm.create_model("efficientnet_b1", pretrained=False, num_classes=num_classes, drop_rate=0.0)
+                
+                ckpt = torch.load(effnet_path, map_location=DEVICE)
+                state_dict = ckpt.get("model_state", ckpt)
+                model.load_state_dict(state_dict)
+                model = model.to(DEVICE).eval()
+                
+                self.phase1_model = model
+                self.phase1_yolo = None
+                logger.info("Successfully loaded Phase 1 EfficientNet-B1 model")
+                return True
+            except Exception as e:
+                logger.error(f"Failed to load Phase 1 EfficientNet model: {e}")
+                
+        if yolo_path.exists() or (self.weights_dir / "best.pt").exists():
+            actual_yolo_path = yolo_path if yolo_path.exists() else (self.weights_dir / "best.pt")
+            try:
+                logger.info(f"Loading Phase 1 YOLOv11 classifier from {actual_yolo_path}")
+                # ultralytics handles model loading and device selection internally
+                self.phase1_yolo = YOLO(str(actual_yolo_path))
+                self.phase1_model = None
+                # YOLO holds its own names dictionary, but we align with class_to_idx_phase1.json
+                logger.info("Successfully loaded Phase 1 YOLOv11 classifier")
+                return True
+            except Exception as e:
+                logger.error(f"Failed to load Phase 1 YOLO model: {e}")
+
+        logger.warning("No Phase 1 model weights (.pt) found in weights/ directory.")
+        return False
+
+    def load_phase2(self) -> bool:
+        """Loads Phase 2 disease detector model weights and mappings."""
+        # 1. Load crop-disease mapping JSONs
+        idx_map_path = self.weights_dir / "crop_disease_idx_map.json"
+        
+        if not idx_map_path.exists():
+            logger.warning(f"Phase 2 crop-disease mapping missing at {idx_map_path}")
+            return False
+            
+        try:
+            with open(idx_map_path, "r") as f:
+                # Convert keys to string and lists to list of integers
+                self.crop_disease_idx_map = json.load(f)
+        except Exception as e:
+            logger.error(f"Failed to parse crop_disease_idx_map: {e}")
+            return False
+
+        # 2. Check and load model weights
+        disease_pt_path = self.weights_dir / "efficientnet_b0_disease_mini.pt"
+        if not disease_pt_path.exists():
+            logger.warning(f"Phase 2 model checkpoint missing at {disease_pt_path}")
+            return False
+
+        try:
+            logger.info(f"Loading Phase 2 EfficientNet-B0 model from {disease_pt_path}")
+            ckpt = torch.load(disease_pt_path, map_location=DEVICE)
+            
+            # Load class map bundled in the checkpoint
+            self.phase2_class_to_idx = ckpt.get("class_to_idx")
+            if not self.phase2_class_to_idx:
+                logger.error("No class_to_idx found inside the Phase 2 checkpoint file!")
+                return False
+                
+            self.phase2_idx_to_class = {int(v): k for k, v in self.phase2_class_to_idx.items()}
+            num_classes = len(self.phase2_class_to_idx)
+            
+            model = timm.create_model("efficientnet_b0", pretrained=False, num_classes=num_classes, drop_rate=0.0)
+            model.load_state_dict(ckpt["model_state"])
+            model = model.to(DEVICE).eval()
+            
+            self.phase2_model = model
+            logger.info(f"Successfully loaded Phase 2 model with {num_classes} classes")
+            return True
+        except Exception as e:
+            logger.error(f"Failed to load Phase 2 model: {e}")
+            return False
+
+    def predict_crop(self, img_pil: Image.Image, direct_resize: bool = False, top_k: int = 5) -> List[Tuple[str, float]]:
+        """Predicts the crop class of the given image."""
+        if not self.is_phase1_loaded():
+            raise RuntimeError("Phase 1 model weights or metadata are not loaded.")
+
+        # Scenario 1: EfficientNet-B1 Classifier
+        if self.phase1_model is not None:
+            transform = get_transforms(img_size=240, direct_resize=direct_resize)
+            img_arr = np.array(img_pil.convert("RGB"))
+            tensor = transform(image=img_arr)["image"].unsqueeze(0).to(DEVICE)
+            
+            with torch.no_grad():
+                logits = self.phase1_model(tensor)
+                probs = torch.softmax(logits, dim=1)[0].cpu()
+                
+            top_probs, top_idxs = probs.topk(min(top_k, len(probs)))
+            results = []
+            for idx, prob in zip(top_idxs, top_probs):
+                idx_val = idx.item()
+                crop_name = self.phase1_idx_to_class.get(idx_val, f"unknown_{idx_val}")
+                results.append((crop_name, prob.item()))
+            return results
+
+        # Scenario 2: YOLOv11 Classifier
+        elif self.phase1_yolo is not None:
+            # YOLO internally handles loading PIL image and preprocessing
+            results = self.phase1_yolo(img_pil, verbose=False)[0]
+            probs = results.probs
+            
+            # YOLO sorted alphabetically, we can extract it directly
+            top_indices = probs.top5[:top_k]
+            top_confs = probs.top5conf[:top_k].tolist()
+            
+            # Retrieve names from YOLO names mapping or align with class_to_idx
+            yolo_names = self.phase1_yolo.names
+            
+            output = []
+            for idx, conf in zip(top_indices, top_confs):
+                idx_val = int(idx)
+                crop_name = yolo_names.get(idx_val, f"unknown_{idx_val}")
+                output.append((crop_name, conf))
+            return output
+
+        raise RuntimeError("No loaded Phase 1 model structure was identified.")
+
+    def predict_disease(self, img_pil: Image.Image, crop_name: str, direct_resize: bool = False, top_k: int = 5) -> List[Tuple[str, float]]:
+        """Predicts the disease of the crop from valid disease classes, applying index masking."""
+        if not self.is_phase2_loaded():
+            raise RuntimeError("Phase 2 model weights or metadata are not loaded.")
+            
+        crop_clean = crop_name.lower().strip()
+        if crop_clean not in self.crop_disease_idx_map:
+            raise ValueError(f"Crop '{crop_name}' is not supported in the disease database.")
+            
+        valid_idxs = self.crop_disease_idx_map[crop_clean]
+        if not valid_idxs:
+            raise ValueError(f"No valid diseases registered for crop '{crop_name}'.")
+
+        # 1. Preprocess the image (EfficientNet-B0 uses IMG_SIZE = 224)
+        transform = get_transforms(img_size=224, direct_resize=direct_resize)
+        img_arr = np.array(img_pil.convert("RGB"))
+        tensor = transform(image=img_arr)["image"].unsqueeze(0).to(DEVICE)
+
+        # 2. Run forward pass
+        with torch.no_grad():
+            logits = self.phase2_model(tensor)[0]
+
+        # 3. Mask out all classes not valid for this crop (set to -infinity)
+        valid_idxs_t = torch.tensor(valid_idxs, device=DEVICE)
+        masked_logits = torch.full_like(logits, float("-inf"))
+        masked_logits[valid_idxs_t] = logits[valid_idxs_t]
+
+        # 4. Compute Softmax and get Top K predictions
+        probs = torch.softmax(masked_logits, dim=0).cpu()
+        top_probs, top_idxs = probs.topk(min(top_k, len(valid_idxs)))
+
+        # 5. Format results
+        results = []
+        for idx, prob in zip(top_idxs, top_probs):
+            idx_val = idx.item()
+            disease_label = self.phase2_idx_to_class.get(idx_val, f"unknown_{idx_val}")
+            results.append((disease_label, prob.item()))
+            
+        return results
+
+    def get_supported_crops(self) -> List[str]:
+        """Returns the list of supported crops for Phase 2."""
+        if self.crop_disease_idx_map is not None:
+            return sorted(list(self.crop_disease_idx_map.keys()))
+        return []
+
+    def get_diseases_for_crop(self, crop_name: str) -> List[str]:
+        """Returns the list of valid diseases for a given crop name."""
+        if not self.is_phase2_loaded():
+            return []
+        
+        crop_clean = crop_name.lower().strip()
+        valid_idxs = self.crop_disease_idx_map.get(crop_clean, [])
+        
+        diseases = []
+        for idx in valid_idxs:
+            d_name = self.phase2_idx_to_class.get(idx)
+            if d_name:
+                diseases.append(d_name)
+        return sorted(diseases)
