@@ -25,7 +25,7 @@ logger = logging.getLogger("backend")
 app = FastAPI(
     title="Crop Disease Classification Backend",
     description="Backend API for crop classification (Phase 1) and disease detection (Phase 2).",
-    version="1.0.0"
+    version="1.2.0"
 )
 
 # Enable CORS for frontend flexibility

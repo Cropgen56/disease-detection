@@ -23,11 +23,20 @@ elif torch.cuda.is_available():
 else:
     DEVICE = torch.device("cpu")
 
+# DINOv2 uses upsample_bicubic2d which is not fully implemented on MPS.
+# Force CPU for DINOv2 on Apple Silicon to avoid NotImplementedError.
+DINOV2_DEVICE = torch.device("cpu") if DEVICE.type == "mps" else DEVICE
+
 logger.info(f"Using device: {DEVICE}")
+if DINOV2_DEVICE != DEVICE:
+    logger.info(f"DINOv2 will run on: {DINOV2_DEVICE} (MPS fallback for unsupported ops)")
 
 # Configuration constants matching training notebooks
 NORM_MEAN = (0.5, 0.5, 0.5)
 NORM_STD = (0.5, 0.5, 0.5)
+
+DINOV2_NORM_MEAN = (0.485, 0.456, 0.406)
+DINOV2_NORM_STD = (0.229, 0.224, 0.225)
 
 # --- Preprocessing Transforms ---
 
@@ -51,6 +60,37 @@ def get_transforms(img_size: int, direct_resize: bool = False) -> A.Compose:
             A.Normalize(mean=NORM_MEAN, std=NORM_STD),
             ToTensorV2(),
         ])
+
+
+def get_dinov2_transforms(img_size: int = 238, direct_resize: bool = False) -> A.Compose:
+    """
+    Builds the inference transform pipeline for DINOv2.
+    """
+    if direct_resize:
+        return A.Compose([
+            A.Resize(img_size, img_size, interpolation=cv2.INTER_CUBIC),
+            A.Normalize(mean=DINOV2_NORM_MEAN, std=DINOV2_NORM_STD),
+            ToTensorV2(),
+        ])
+    else:
+        return A.Compose([
+            A.SmallestMaxSize(max_size=img_size, interpolation=cv2.INTER_CUBIC),
+            A.CenterCrop(height=img_size, width=img_size, pad_if_needed=True, border_mode=cv2.BORDER_REFLECT),
+            A.Normalize(mean=DINOV2_NORM_MEAN, std=DINOV2_NORM_STD),
+            ToTensorV2(),
+        ])
+
+
+class DinoV2Classifier(nn.Module):
+    def __init__(self, num_classes: int, backbone_name: str = 'dinov2_vits14'):
+        super().__init__()
+        # Load from torch hub
+        self.backbone = torch.hub.load('facebookresearch/dinov2', backbone_name)
+        self.head = nn.Linear(self.backbone.embed_dim, num_classes)
+
+    def forward(self, x):
+        feats = self.backbone(x)
+        return self.head(feats)
 
 
 # --- Model Management State ---
@@ -79,7 +119,50 @@ class ModelManager:
 
     def load_phase1(self) -> bool:
         """Loads Phase 1 crop classifier model weights and mappings."""
-        # 1. Load class mapping
+        dinov2_path = self.weights_dir / "stage1_dinov2_30class.pt"
+        effnet_path = self.weights_dir / "efficientnet_b1_crop_mini.pt"
+        yolo_path = self.weights_dir / "yolo11n_crop_mini.pt"  # or user's best.pt renamed
+
+        # Try DINOv2 first as the primary stage 1 model
+        if dinov2_path.exists():
+            try:
+                logger.info(f"Loading Phase 1 DINOv2 model from {dinov2_path}")
+                # Load to CPU first regardless; DINOv2 will be moved to DINOV2_DEVICE
+                ckpt = torch.load(dinov2_path, map_location="cpu")
+                
+                if "class_to_idx" in ckpt:
+                    self.phase1_class_to_idx = ckpt["class_to_idx"]
+                else:
+                    logger.error("No class_to_idx found inside the Phase 1 DINOv2 checkpoint file!")
+                    return False
+                
+                self.phase1_idx_to_class = {int(v): k for k, v in self.phase1_class_to_idx.items()}
+                
+                # Overwrite class_to_idx_phase1.json so it matches the loaded model
+                try:
+                    with open(self.weights_dir / "class_to_idx_phase1.json", "w") as f:
+                        json.dump(self.phase1_class_to_idx, f, indent=2)
+                    logger.info("Successfully updated class_to_idx_phase1.json with checkpoint mapping.")
+                except Exception as ex:
+                    logger.warning(f"Could not update class_to_idx_phase1.json file: {ex}")
+
+                num_classes = len(self.phase1_class_to_idx)
+                model = DinoV2Classifier(num_classes=num_classes)
+                
+                state_dict = ckpt.get("model_state", ckpt)
+                model.load_state_dict(state_dict)
+                # Use DINOV2_DEVICE (CPU on MPS) — upsample_bicubic2d not supported on MPS
+                model = model.to(DINOV2_DEVICE).eval()
+                
+                self.phase1_model = model
+                self.phase1_yolo = None
+                logger.info("Successfully loaded Phase 1 DINOv2 model")
+                return True
+            except Exception as e:
+                logger.error(f"Failed to load Phase 1 DINOv2 model: {e}")
+
+        # Fallback 1: EfficientNet-B1 Classifier
+        # 1. Load class mapping for fallback models
         crop_class_map_path = self.weights_dir / "class_to_idx_phase1.json"
         if not crop_class_map_path.exists():
             logger.warning(f"Phase 1 class mapping missing at {crop_class_map_path}")
@@ -94,10 +177,6 @@ class ModelManager:
         except Exception as e:
             logger.error(f"Failed to parse Phase 1 class map: {e}")
             return False
-
-        # 2. Check and load model weight files
-        effnet_path = self.weights_dir / "efficientnet_b1_crop_mini.pt"
-        yolo_path = self.weights_dir / "yolo11n_crop_mini.pt"  # or user's best.pt renamed
 
         if effnet_path.exists():
             try:
@@ -124,7 +203,7 @@ class ModelManager:
                 # ultralytics handles model loading and device selection internally
                 self.phase1_yolo = YOLO(str(actual_yolo_path))
                 self.phase1_model = None
-                # YOLO holds its own names dictionary, but we align with class_to_idx_phase1.json
+                # YOLO holds its own names dictionary, but we align with class_to_idx
                 logger.info("Successfully loaded Phase 1 YOLOv11 classifier")
                 return True
             except Exception as e:
@@ -185,11 +264,17 @@ class ModelManager:
         if not self.is_phase1_loaded():
             raise RuntimeError("Phase 1 model weights or metadata are not loaded.")
 
-        # Scenario 1: EfficientNet-B1 Classifier
+        # Scenario 1: PyTorch nn.Module Classifier (EfficientNet-B1 or DINOv2)
         if self.phase1_model is not None:
-            transform = get_transforms(img_size=240, direct_resize=direct_resize)
+            if isinstance(self.phase1_model, DinoV2Classifier):
+                transform = get_dinov2_transforms(img_size=238, direct_resize=direct_resize)
+                # DINOv2 runs on DINOV2_DEVICE (CPU on MPS)
+                infer_device = DINOV2_DEVICE
+            else:
+                transform = get_transforms(img_size=240, direct_resize=direct_resize)
+                infer_device = DEVICE
             img_arr = np.array(img_pil.convert("RGB"))
-            tensor = transform(image=img_arr)["image"].unsqueeze(0).to(DEVICE)
+            tensor = transform(image=img_arr)["image"].unsqueeze(0).to(infer_device)
             
             with torch.no_grad():
                 logits = self.phase1_model(tensor)
