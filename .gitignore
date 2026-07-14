@@ -1,8 +1,50 @@
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
 
-# ML models
+# Virtual environments
+venv/
+.venv/
+env/
 
+# Environment variables
+.env
 
-.venv
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# Pytest
+.pytest_cache/
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model files
+*.pt
+*.pth
+*.onnx
+*.ckpt
+*.safetensors
+*.pickle
+*.pkl
+
+# Uploads/Outputs
+uploads/
+outputs/
+predictions/
+
+# Cache
+.cache/
