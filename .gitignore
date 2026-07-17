@@ -33,6 +33,7 @@ dist/
 .ipynb_checkpoints/
 
 # Model files
+weights/*.pt
 *.pt
 *.pth
 *.onnx
