@@ -318,3 +318,6 @@ async def get_metadata():
         phase1_active=model_manager.is_phase1_loaded(),
         phase2_active=model_manager.is_phase2_loaded()
     )
+
+
+# commit check for testing
