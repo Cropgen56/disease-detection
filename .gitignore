@@ -47,5 +47,9 @@ uploads/
 outputs/
 predictions/
 
+# Test images
+test_images/*
+!test_images/.gitkeep
+
 # Cache
 .cache/

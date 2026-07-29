@@ -1,8 +1,10 @@
 import io
+import json
 import logging
 import sys
 from pathlib import Path
 from typing import List, Optional
+
 
 # Add the directory containing main.py to system path for robust imports
 sys.path.append(str(Path(__file__).resolve().parent))
@@ -20,6 +22,26 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger("backend")
+
+
+# Disease Data (loaded once at startup, after logger is ready)
+
+_DATA_DIR = Path(__file__).resolve().parent / "data"
+
+def _load_json(path: Path) -> dict:
+    """Load a JSON file; return empty dict and log a warning on failure."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        logger.warning(f"Data file not found: {path}")
+        return {}
+    except json.JSONDecodeError as e:
+        logger.error(f"Failed to parse {path}: {e}")
+        return {}
+
+DISEASE_DATA_EN: dict = _load_json(_DATA_DIR / "crop_diseases.json")
+DISEASE_DATA_HI: dict = _load_json(_DATA_DIR / "crop_diseases_hindi.json")
 
 # Initialize FastAPI App
 app = FastAPI(
@@ -99,9 +121,17 @@ class MetadataResponse(BaseModel):
     phase1_active: bool = Field(..., description="Indicates if Phase 1 crop model is loaded.")
     phase2_active: bool = Field(..., description="Indicates if Phase 2 disease model is loaded.")
 
+# symptoms and control
+class SymptomsControlResponse(BaseModel):
+    crop: str = Field(..., description="Normalized crop identifier.")
+    disease_en: str = Field(..., description="English display name of the disease.")
+    disease_hi: Optional[str] = Field(None, description="Hindi name of the disease (None when lang=en).")
+    lang: str = Field(..., description="Language of the returned symptoms/control content ('en' or 'hi').")
+    symptoms: List[str] = Field(..., description="List of symptom descriptions in the requested language.")
+    control: List[str] = Field(..., description="List of control/treatment measures in the requested language.")
+
 
 # Helpers
-
 CROP_DISPLAY_MAP = {
     'apple': 'Apple', 'bean': 'Bean', 'bell_pepper': 'Bell Pepper',
     'blackgram': 'Blackgram', 'blueberry': 'Blueberry', 'cherry': 'Cherry',
@@ -317,4 +347,105 @@ async def get_metadata():
         supported_crops=model_manager.get_supported_crops(),
         phase1_active=model_manager.is_phase1_loaded(),
         phase2_active=model_manager.is_phase2_loaded()
+    )
+
+@app.get(
+     "/api/v1/symptoms-control",
+    response_model=SymptomsControlResponse,
+    responses={
+        404: {"model": ErrorResponse, "description": "Crop or disease not found in the data files."},
+        400: {"model": ErrorResponse, "description": "Invalid lang parameter."},
+        503: {"model": ErrorResponse, "description": "Disease data files are not loaded."},
+    }
+)
+async def get_symptoms_control(
+    crop: str = Query(..., description="Crop name (e.g. 'tomato', 'potato')."),
+    disease: str = Query(..., description="English display name of the disease (e.g. 'Early Blight')."),
+    lang: str = Query("en", description="Response language: 'en' (default) or 'hi'."),
+):
+    """
+    **Symptoms & Control Endpoint**
+    Returns symptom descriptions and control/treatment measures for a given
+    crop–disease pair, in English or Hindi.
+    - `crop` — normalized crop key (same identifiers used by /classify-crop and /detect-disease)
+    - `disease` — English display name of the disease as returned by /detect-disease (e.g. 'Early Blight')
+    - `lang` — 'en' for English (default), 'hi' for Hindi
+    """
+
+    # Validate lang
+
+    lang = lang.lower().strip()
+    if lang not in {"en", "hi"}:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Invalid lang parameter. currently only 'en' or 'hi' is supported."
+        )
+        
+    # check data
+    if not DISEASE_DATA_EN:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail = "English disease data not loaded."
+        )
+    if lang=="hi" and not DISEASE_DATA_HI:
+        raise HTTPException(
+            status_code = status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail = "Hindi disease data not loaded"
+            
+        )
+
+    crop_clean = crop.lower().strip()
+    disease_clean = disease.strip()
+
+    # lookup crop in english data
+    crop_entries_en = DISEASE_DATA_EN.get(crop_clean)
+    if crop_entries_en is None:
+        raise HTTPException(
+            status_code = status.HTTP_404_NOT_FOUND,
+             detail=f"Crop '{crop_clean}' not found in disease data. "
+                    f"Supported crops: {list(DISEASE_DATA_EN.keys())}"
+                    
+        )
+    # find disease index in english data (case-insensitive)
+    matched_index: Optional[int] = None
+    matched_en_entry: Optional[dict] = None
+    for i, entry in enumerate(crop_entries_en):
+        if entry["disease"].lower() == disease_clean.lower():
+            matched_index = i
+            matched_en_entry = entry
+            break
+
+    if matched_index is None:
+        available = [e["disease"] for e in crop_entries_en]
+        raise HTTPException(
+            status_code = status.HTTP_404_NOT_FOUND,
+            detail = f"Disease '{disease_clean}' not found for crop '{crop_clean}'. "
+                     f"Available diseases: {available}"
+        )
+    
+    # Serve English
+    if lang == "en":
+        return SymptomsControlResponse(
+            crop=crop_clean,
+            disease_en=matched_en_entry["disease"],
+            disease_hi=None,
+            lang="en",
+            symptoms=matched_en_entry["symptoms"],
+            control=matched_en_entry["control"],
+        )
+    # Serve Hindi (same index, Hindi JSON)
+    crop_entries_hi = DISEASE_DATA_HI.get(crop_clean, [])
+    if matched_index >= len(crop_entries_hi):
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail=f"Hindi data is out of sync for crop '{crop_clean}' at index {matched_index}."
+        )
+    hi_entry = crop_entries_hi[matched_index]
+    return SymptomsControlResponse(
+        crop=crop_clean,
+        disease_en=matched_en_entry["disease"],
+        disease_hi=hi_entry["disease"],
+        lang="hi",
+        symptoms=hi_entry["symptoms"],
+        control=hi_entry["control"],
     )
