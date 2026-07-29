@@ -1,0 +1,2493 @@
+{
+  "cherry": [
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White, powdery patches on leaves, shoots, and sometimes fruit",
+        "Leaves may curl, twist, or turn pale",
+        "Young shoots look stunted or distorted"
+      ],
+      "control": [
+        "Prune trees to improve air flow between branches",
+        "Avoid overhead watering — water at the base of the tree",
+        "Remove and destroy infected leaves/shoots",
+        "Spray with sulfur-based fungicide or neem oil every 7–10 days when symptoms appear"
+      ]
+    },
+    {
+      "disease": "Cherry Leaf Spot",
+      "symptoms": [
+        "Small purple or reddish spots on upper leaf surface",
+        "Spots turn brown/tan with age, centers may fall out (shot-hole look)",
+        "Heavily infected leaves turn yellow and drop early",
+        "Weakens tree over time, reduces fruit quality"
+      ],
+      "control": [
+        "Clear fallen leaves from under the tree in autumn (fungus survives in leaf litter)",
+        "Prune for better sunlight and airflow",
+        "Apply copper-based fungicide spray after harvest and before new leaf growth in spring",
+        "Avoid wetting leaves during irrigation"
+      ]
+    },
+    {
+      "disease": "Brown Rot",
+      "symptoms": [
+        "Brown, soft, rotting spots on fruit that spread quickly",
+        "Grayish fuzzy mold growth on rotting fruit",
+        "Blossoms wilt and turn brown, may look scorched",
+        "Twigs can show cankers (sunken dead patches) and gum oozing out"
+      ],
+      "control": [
+        "Remove and destroy infected/mummified fruit from the tree and ground",
+        "Prune out dead or infected twigs",
+        "Don't let fruit stay too long on tree at harvest time",
+        "Spray fungicide (like captan or copper-based) at blossom time and again before harvest",
+        "Avoid injuring fruit — wounds let the fungus enter"
+      ]
+    },
+    {
+      "disease": "Bacterial Canker",
+      "symptoms": [
+        "Sunken, dark patches on bark that ooze gum (sticky amber-colored sap)",
+        "Leaves develop small brown spots that can fall out, leaving holes (\"shot-hole\")",
+        "Buds and branches may die back suddenly, especially in spring",
+        "Cankers can girdle and kill branches or the whole tree"
+      ],
+      "control": [
+        "Prune out infected branches during dry weather (cutting when wet spreads bacteria)",
+        "Disinfect pruning tools between cuts (dip in diluted bleach or alcohol)",
+        "Apply copper spray in autumn and again in early spring before buds open",
+        "Avoid tree stress — proper watering and fertilizing helps trees resist infection",
+        "Avoid planting new cherry trees in soil where infected trees grew"
+      ]
+    },
+    {
+      "disease": "Cherry Leaf Curl",
+      "symptoms": [
+        "Leaves curl, pucker, and thicken abnormally",
+        "Reddish or yellowish discoloration on affected leaves",
+        "Infected leaves may fall early, weakening the tree"
+      ],
+      "control": [
+        "Apply copper fungicide spray during dormant season (before buds swell)",
+        "Remove and destroy fallen infected leaves",
+        "Improve air circulation through pruning",
+        "Avoid excess nitrogen fertilizer, which encourages soft new growth susceptible to infection"
+      ]
+    }
+  ],
+  "bean": [
+    {
+      "disease": "Bean Rust",
+      "symptoms": [
+        "Small, reddish-brown powdery spots (pustules) on undersides of leaves",
+        "Yellow halos around spots on upper leaf surface",
+        "Heavily infected leaves turn yellow, dry up, and fall early",
+        "Reduces plant vigor and pod yield"
+      ],
+      "control": [
+        "Plant rust-resistant bean varieties if available",
+        "Avoid overhead watering; water at soil level",
+        "Remove and destroy infected leaves/plant debris after harvest",
+        "Rotate crops — don't plant beans in the same spot every year",
+        "Spray sulfur or copper-based fungicide when spots first appear"
+      ]
+    },
+    {
+      "disease": "Angular Leaf Spot",
+      "symptoms": [
+        "Angular, brown spots on leaves (bounded by leaf veins, giving a \"patchwork\" look)",
+        "Grayish mold may appear on spots in humid weather",
+        "Spots can also appear on pods as reddish-brown lesions",
+        "Leaves turn yellow and drop in severe cases"
+      ],
+      "control": [
+        "Use certified disease-free seeds",
+        "Avoid working in the field when leaves are wet (spreads spores)",
+        "Practice crop rotation (2–3 years gap from beans)",
+        "Remove infected plant debris after harvest",
+        "Apply copper-based fungicide if disease appears early"
+      ]
+    },
+    {
+      "disease": "Bacterial Blight",
+      "symptoms": [
+        "Water-soaked spots on leaves that turn brown and dry, often with yellow border",
+        "Spots may merge, making large dead patches on leaves",
+        "Pods show sunken, water-soaked lesions",
+        "Seeds can become discolored and shriveled"
+      ],
+      "control": [
+        "Use certified, disease-free seeds — bacteria often spread through seed",
+        "Avoid overhead irrigation",
+        "Don't handle plants when wet",
+        "Rotate crops for 2 years away from beans",
+        "Copper-based sprays can help reduce spread (won't cure existing infection)"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Dark, sunken spots with pink/salmon-colored ooze on pods",
+        "Brown to black lesions along leaf veins",
+        "Stems may show dark cankers",
+        "Seeds develop dark blotches, become unfit for planting"
+      ],
+      "control": [
+        "Plant certified disease-free seeds",
+        "Avoid working in wet fields (spreads spores easily)",
+        "Practice 2–3 year crop rotation",
+        "Remove and destroy infected plant material",
+        "Fungicide spray (copper or chlorothalonil-based) at first sign of disease"
+      ]
+    },
+    {
+      "disease": "Bean Mosaic Virus",
+      "symptoms": [
+        "Mottled yellow-green pattern on leaves (mosaic look)",
+        "Leaves appear curled, puckered, or distorted",
+        "Stunted plant growth, fewer pods",
+        "Pods may be malformed"
+      ],
+      "control": [
+        "Use virus-resistant bean varieties",
+        "Control aphids (they spread the virus) using neem oil or insecticidal soap",
+        "Remove and destroy infected plants immediately — no cure once infected",
+        "Avoid planting near other virus-infected crops",
+        "Use virus-free certified seeds"
+      ]
+    }
+  ],
+  "bell_pepper": [
+    {
+      "disease": "Bacterial Spot",
+      "symptoms": [
+        "Small, dark, water-soaked spots on leaves that turn brown/black",
+        "Spots may have yellow halo",
+        "Fruit shows raised, scab-like brown spots",
+        "Severe infection causes leaf drop"
+      ],
+      "control": [
+        "Use disease-free certified seeds",
+        "Avoid overhead watering",
+        "Rotate crops (avoid peppers/tomatoes in same soil for 2 years)",
+        "Copper-based sprays help slow spread",
+        "Remove infected plants/debris after harvest"
+      ]
+    },
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White powdery coating on leaf undersides",
+        "Leaves yellow, curl, and may drop early",
+        "Reduced fruit size and yield"
+      ],
+      "control": [
+        "Ensure good air circulation (proper plant spacing)",
+        "Avoid excess nitrogen fertilizer",
+        "Spray sulfur or neem oil at first sign",
+        "Water at the base, not on leaves"
+      ]
+    },
+    {
+      "disease": "Cercospora Leaf Spot (Frog-eye Leaf Spot)",
+      "symptoms": [
+        "Circular spots with light gray/tan center and dark brown border (frog-eye look)",
+        "Older leaves affected first",
+        "Heavy spotting causes leaves to yellow and fall"
+      ],
+      "control": [
+        "Remove infected leaves promptly",
+        "Avoid wetting foliage while watering",
+        "Crop rotation for 2 years",
+        "Fungicide (copper or chlorothalonil-based) spray if spreading"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Sunken, circular dark spots on ripening fruit",
+        "Spots may have concentric rings, pinkish spore masses in center",
+        "Fruit rots quickly in humid weather"
+      ],
+      "control": [
+        "Avoid overhead irrigation",
+        "Stake plants to keep fruit off the ground",
+        "Remove and destroy infected fruit",
+        "Fungicide spray during fruiting season if humid conditions persist"
+      ]
+    },
+    {
+      "disease": "Mosaic Virus",
+      "symptoms": [
+        "Mottled yellow-green pattern on leaves",
+        "Leaves distorted, curled, or narrow (\"shoestring\" look)",
+        "Stunted plants, reduced fruit set",
+        "Fruit may show discoloration or bumpy texture"
+      ],
+      "control": [
+        "Control aphids — main carriers of the virus",
+        "Remove and destroy infected plants immediately",
+        "Use virus-resistant varieties",
+        "Disinfect tools between plants",
+        "Avoid smoking near plants (tobacco mosaic virus can spread this way)"
+      ]
+    }
+  ],
+  "peach": [
+    {
+      "disease": "Peach Leaf Curl",
+      "symptoms": [
+        "Leaves become thick, puckered, and curled",
+        "Reddish or yellowish discoloration on leaves",
+        "Infected leaves fall early; tree looks stressed",
+        "Can reduce fruit yield if severe"
+      ],
+      "control": [
+        "Spray copper-based fungicide in late fall (after leaf drop) and again before buds swell in early spring",
+        "Remove and destroy fallen infected leaves",
+        "Prune to improve air circulation",
+        "Avoid overhead watering during cool, wet spring weather"
+      ]
+    },
+    {
+      "disease": "Bacterial Spot",
+      "symptoms": [
+        "Small, dark, water-soaked spots on leaves that turn into holes (\"shot-hole\" look)",
+        "Sunken, dark lesions on fruit surface",
+        "Fruit may crack, reducing market quality",
+        "Twigs can show small cankers"
+      ],
+      "control": [
+        "Plant resistant peach varieties if available",
+        "Avoid excess nitrogen fertilizer (encourages soft, susceptible growth)",
+        "Prune for good air flow",
+        "Copper spray during dormant season",
+        "Avoid overhead irrigation"
+      ]
+    },
+    {
+      "disease": "Brown Rot",
+      "symptoms": [
+        "Brown, soft rot spreading quickly on ripening fruit",
+        "Grayish-brown fuzzy mold on infected fruit",
+        "Blossoms wilt and turn brown (\"blossom blight\")",
+        "Twig cankers with gum oozing"
+      ],
+      "control": [
+        "Remove and destroy infected/mummified fruit from tree and ground",
+        "Prune out dead/infected twigs",
+        "Avoid fruit injury during harvest and handling",
+        "Fungicide spray at bloom time and again 2–3 weeks before harvest",
+        "Improve air circulation through pruning"
+      ]
+    },
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White powdery patches on leaves and young shoots",
+        "Leaves may curl or distort",
+        "White fuzzy patches can also appear on fruit surface"
+      ],
+      "control": [
+        "Prune to improve sunlight penetration and airflow",
+        "Avoid overhead watering",
+        "Sulfur-based fungicide spray at first sign",
+        "Remove heavily infected shoots"
+      ]
+    },
+    {
+      "disease": "Rust",
+      "symptoms": [
+        "Small yellow spots on upper leaf surface",
+        "Orange-brown powdery pustules on leaf undersides",
+        "Heavily infected leaves yellow and drop early",
+        "Weakens tree over time"
+      ],
+      "control": [
+        "Remove and destroy fallen infected leaves",
+        "Prune for better air circulation",
+        "Avoid overhead watering",
+        "Fungicide (sulfur or copper-based) spray during humid growing season"
+      ]
+    }
+  ],
+  "squash": [
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White, powdery spots on leaves and stems",
+        "Leaves eventually turn yellow, then brown and dry out",
+        "Reduced fruit size and quality"
+      ],
+      "control": [
+        "Plant in full sun with good spacing for airflow",
+        "Avoid overhead watering — water at the base",
+        "Sulfur or neem oil spray at first sign",
+        "Remove and destroy heavily infected leaves"
+      ]
+    },
+    {
+      "disease": "Downy Mildew",
+      "symptoms": [
+        "Yellow, angular spots on upper leaf surface",
+        "Grayish-purple fuzzy mold on leaf undersides (especially in humid mornings)",
+        "Leaves curl, turn brown, and die",
+        "Spreads quickly in wet/humid conditions"
+      ],
+      "control": [
+        "Avoid overhead watering; water early in the day so leaves dry fast",
+        "Improve spacing/airflow between plants",
+        "Remove infected leaves immediately",
+        "Copper-based fungicide spray at first sign",
+        "Rotate crops each season"
+      ]
+    },
+    {
+      "disease": "Mosaic Virus",
+      "symptoms": [
+        "Mottled yellow-green pattern on leaves",
+        "Leaves curled, distorted, and stunted",
+        "Fruit may be bumpy, discolored, or misshapen",
+        "Overall stunted plant growth"
+      ],
+      "control": [
+        "Control aphids and cucumber beetles (main virus carriers)",
+        "Remove and destroy infected plants right away — no cure",
+        "Use virus-resistant varieties if available",
+        "Keep field free of weeds that can host the virus"
+      ]
+    },
+    {
+      "disease": "Bacterial Wilt",
+      "symptoms": [
+        "Sudden wilting of leaves/vines, starting with one or two leaves",
+        "Wilting worsens quickly, especially in daytime heat",
+        "Cut stem oozes sticky white substance when squeezed",
+        "Whole plant can collapse and die within days"
+      ],
+      "control": [
+        "Control cucumber beetles — they spread the bacteria while feeding",
+        "Remove and destroy infected plants immediately (no cure)",
+        "Use row covers on young plants to keep beetles away",
+        "Avoid planting squash in the same soil as previously infected crops"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Dark, sunken spots on leaves, stems, and fruit",
+        "Spots may have pink spore masses in humid weather",
+        "Fruit lesions sink in and rot",
+        "Leaves develop yellow-brown spots and can shrivel"
+      ],
+      "control": [
+        "Use certified disease-free seeds",
+        "Avoid overhead irrigation",
+        "Rotate crops (2 years away from squash family)",
+        "Remove and destroy infected plant debris after harvest",
+        "Fungicide spray (copper-based) if disease appears early"
+      ]
+    }
+  ],
+  "tea": [
+    {
+      "disease": "Blister Blight",
+      "symptoms": [
+        "Light green, translucent spots on young leaves that turn into blisters",
+        "Blisters turn white/pink with powdery spores, then brown and dry out",
+        "Affects only young, tender leaves — the part harvested for tea",
+        "Can cause major crop loss in wet, cool weather"
+      ],
+      "control": [
+        "Prune and pluck regularly to remove infected shoots",
+        "Improve field drainage and air circulation",
+        "Avoid harvesting during heavy rain when spores spread easily",
+        "Copper-based fungicide spray during high-risk (cool, humid) season"
+      ]
+    },
+    {
+      "disease": "Red Rust",
+      "symptoms": [
+        "Rusty, reddish-orange velvety patches on stems and branches",
+        "Bark may crack and peel where infected",
+        "Affected branches gradually weaken and dieback",
+        "Reduces overall plant vigor and yield"
+      ],
+      "control": [
+        "Prune out and destroy infected branches",
+        "Improve sunlight penetration by proper spacing/pruning",
+        "Apply copper oxychloride spray on affected areas",
+        "Maintain good soil drainage — avoid waterlogging"
+      ]
+    },
+    {
+      "disease": "Grey Blight",
+      "symptoms": [
+        "Grey-brown circular spots on mature leaves with dark border",
+        "Spots may have tiny black dots (fungal fruiting bodies) in center",
+        "Leaves turn yellow and drop prematurely",
+        "Weakens bush over time"
+      ],
+      "control": [
+        "Remove and destroy fallen infected leaves",
+        "Avoid excess nitrogen fertilizer",
+        "Ensure proper spacing for air circulation",
+        "Fungicide (copper-based) spray during rainy season"
+      ]
+    },
+    {
+      "disease": "Brown Blight",
+      "symptoms": [
+        "Brown, irregular spots on leaves, often starting at leaf tip or edge",
+        "Spots enlarge and may cause leaf curling",
+        "Severe infection leads to leaf drop and shoot dieback"
+      ],
+      "control": [
+        "Prune out infected shoots and leaves",
+        "Avoid mechanical injury to plants (entry point for fungus)",
+        "Improve drainage in the field",
+        "Copper fungicide spray if disease spreads"
+      ]
+    },
+    {
+      "disease": "Black Rot",
+      "symptoms": [
+        "Black, spreading patches on leaves, often starting from leaf base",
+        "Infected leaves stick together with cobweb-like fungal threads",
+        "Rapid leaf drop in humid, shaded conditions",
+        "Common in dense, poorly ventilated tea bushes"
+      ],
+      "control": [
+        "Prune to open up the canopy and reduce shade/humidity",
+        "Remove and burn heavily infected leaves and litter",
+        "Avoid overcrowding of bushes",
+        "Copper oxychloride spray during humid months"
+      ]
+    }
+  ],
+  "lemon": [
+    {
+      "disease": "Citrus Canker",
+      "symptoms": [
+        "Raised, rough, corky spots on leaves, stems, and fruit",
+        "Spots often have a yellow halo (water-soaked ring)",
+        "Fruit may crack; severe infection causes leaf and fruit drop",
+        "Spreads fast in wet, windy weather"
+      ],
+      "control": [
+        "Remove and destroy infected leaves, twigs, and fruit",
+        "Avoid overhead irrigation",
+        "Disinfect pruning tools between trees",
+        "Copper-based spray during new flush growth and after rain",
+        "Plant windbreaks to reduce wind-driven spread"
+      ]
+    },
+    {
+      "disease": "Citrus Greening (HLB)",
+      "symptoms": [
+        "Yellowing of leaves in a blotchy, asymmetrical pattern (unlike nutrient deficiency, which is symmetrical)",
+        "Small, lopsided, bitter fruit that stays partly green when ripe",
+        "Twig dieback, thinning canopy",
+        "No cure — tree eventually declines and dies"
+      ],
+      "control": [
+        "Control Asian citrus psyllid (the insect that spreads this disease) with neem oil or approved insecticide",
+        "Remove and destroy infected trees to prevent spread",
+        "Use disease-free certified planting material",
+        "Regularly inspect trees for early symptoms"
+      ]
+    },
+    {
+      "disease": "Melanose",
+      "symptoms": [
+        "Small, raised, dark brown/black spots on leaves, twigs, and fruit surface",
+        "Fruit surface feels rough (sandpaper-like)",
+        "Spots may merge, forming larger blemished patches",
+        "Mostly a cosmetic issue but can weaken young twigs"
+      ],
+      "control": [
+        "Prune out and destroy dead twigs (main source of fungal spores)",
+        "Improve air circulation through regular pruning",
+        "Copper-based fungicide spray during early fruit development",
+        "Avoid overhead watering"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Dark, sunken lesions on leaves, twigs, and fruit",
+        "Twig dieback starting from tips",
+        "Fruit may show dark rot, especially post-harvest",
+        "Common in trees stressed by drought or poor nutrition"
+      ],
+      "control": [
+        "Prune out dead/infected twigs",
+        "Maintain proper tree nutrition and watering",
+        "Avoid fruit injury during harvest",
+        "Copper-based fungicide spray during wet season"
+      ]
+    },
+    {
+      "disease": "Greasy Spot",
+      "symptoms": [
+        "Yellow, blister-like spots on upper leaf surface",
+        "Dark, greasy-looking brown spots on leaf undersides",
+        "Heavy infection causes premature leaf drop",
+        "Weakens tree over successive seasons"
+      ],
+      "control": [
+        "Remove and destroy fallen leaves (fungus survives in leaf litter)",
+        "Improve air circulation via pruning",
+        "Copper-based spray during summer rains",
+        "Avoid excess overhead irrigation"
+      ]
+    }
+  ],
+  "orange": [
+    {
+      "disease": "Citrus Canker",
+      "symptoms": [
+        "Raised, corky, rough lesions on leaves, stems, and fruit with yellow halo",
+        "Fruit may crack or drop early",
+        "Spreads rapidly through wind-driven rain"
+      ],
+      "control": [
+        "Remove and destroy infected plant parts",
+        "Avoid overhead irrigation and working in wet orchards",
+        "Disinfect tools between trees",
+        "Copper spray after pruning and during new growth flush",
+        "Plant windbreaks around orchard"
+      ]
+    },
+    {
+      "disease": "Citrus Greening (HLB)",
+      "symptoms": [
+        "Blotchy, asymmetrical yellow mottling on leaves",
+        "Small, misshapen, bitter-tasting fruit",
+        "Fruit often stays green at the bottom even when ripe",
+        "Gradual tree decline, twig dieback"
+      ],
+      "control": [
+        "Control Asian citrus psyllid with neem oil/insecticide",
+        "Remove and destroy infected trees promptly",
+        "Use certified disease-free saplings",
+        "Regular orchard monitoring for early signs"
+      ]
+    },
+    {
+      "disease": "Black Spot",
+      "symptoms": [
+        "Small, dark brown/black spots with grey centers on fruit rind",
+        "Spots may have a yellow halo",
+        "Premature fruit drop in severe cases",
+        "Leaves can also show spotting, though less common"
+      ],
+      "control": [
+        "Remove and destroy fallen leaves and fruit",
+        "Improve orchard air circulation via pruning",
+        "Copper-based fungicide during wet season, especially post-flowering",
+        "Avoid excess nitrogen fertilizer"
+      ]
+    },
+    {
+      "disease": "Melanose",
+      "symptoms": [
+        "Small raised brown/black spots on fruit, leaves, twigs",
+        "Rough, sandpaper-like texture on fruit surface",
+        "Mainly cosmetic damage but can affect young twigs"
+      ],
+      "control": [
+        "Prune out dead wood regularly (main source of infection)",
+        "Copper spray during early fruit set",
+        "Improve air circulation",
+        "Avoid water stress"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Dark, sunken spots on leaves, twigs, fruit",
+        "Twig dieback from tips inward",
+        "Post-harvest fruit rot common",
+        "Worse in trees under drought or nutrient stress"
+      ],
+      "control": [
+        "Prune dead/infected twigs regularly",
+        "Maintain good tree nutrition and irrigation",
+        "Avoid fruit injuries during harvest/handling",
+        "Copper fungicide spray in wet weather"
+      ]
+    }
+  ],
+  "potato": [
+    {
+      "disease": "Early Blight",
+      "symptoms": [
+        "Dark brown spots with concentric rings (\"target/bullseye\" pattern) on lower/older leaves first",
+        "Yellowing around spots",
+        "Leaves eventually dry up and fall",
+        "Can also affect tubers with dark, sunken lesions"
+      ],
+      "control": [
+        "Practice crop rotation (avoid potato/tomato family for 2–3 years)",
+        "Remove and destroy infected plant debris",
+        "Ensure proper plant spacing for airflow",
+        "Fungicide (chlorothalonil or copper-based) spray at first sign",
+        "Avoid overhead watering late in the day"
+      ]
+    },
+    {
+      "disease": "Late Blight",
+      "symptoms": [
+        "Water-soaked, dark green-black patches on leaves, spreading fast",
+        "White fuzzy mold on leaf undersides in humid weather",
+        "Blackened stems",
+        "Tubers show reddish-brown rot beneath skin"
+      ],
+      "control": [
+        "Plant certified disease-free seed potatoes",
+        "Destroy infected plants immediately — spreads very fast",
+        "Avoid overhead irrigation; water early in the day",
+        "Fungicide spray (copper-based) preventively during cool, wet weather",
+        "Ensure good field drainage and spacing"
+      ]
+    },
+    {
+      "disease": "Black Scurf",
+      "symptoms": [
+        "Black, crusty, irregular patches (sclerotia) on tuber surface",
+        "Doesn't rot the tuber but affects appearance/marketability",
+        "Can cause stem lesions (canker) on young sprouts, stunting growth"
+      ],
+      "control": [
+        "Use certified disease-free seed potatoes",
+        "Practice crop rotation",
+        "Avoid planting in cold, wet soil (delays emergence, increases risk)",
+        "Proper field drainage",
+        "Treat seed potatoes with fungicide before planting if available"
+      ]
+    },
+    {
+      "disease": "Common Scab",
+      "symptoms": [
+        "Rough, corky, raised or sunken lesions on tuber skin",
+        "Doesn't usually affect the inside of the tuber, mainly cosmetic",
+        "More common in alkaline, dry soils"
+      ],
+      "control": [
+        "Maintain slightly acidic soil (avoid excess lime)",
+        "Keep soil consistently moist during tuber formation (critical period)",
+        "Use resistant potato varieties if available",
+        "Practice crop rotation",
+        "Avoid fresh manure application before planting"
+      ]
+    },
+    {
+      "disease": "Leaf Roll Virus",
+      "symptoms": [
+        "Upward rolling/curling of leaves, starting with lower leaves",
+        "Leaves become stiff, pale, and leathery",
+        "Stunted plant growth",
+        "Reduced tuber size and yield; tubers may show internal browning"
+      ],
+      "control": [
+        "Use certified virus-free seed potatoes",
+        "Control aphids — main carriers of the virus",
+        "Remove and destroy infected plants immediately",
+        "Avoid planting near infected potato/other host crops"
+      ]
+    }
+  ],
+  "blueberry": [
+    {
+      "disease": "Mummy Berry",
+      "symptoms": [
+        "Young shoots and blossoms wilt suddenly, turn brown, look scorched",
+        "Infected berries turn light tan/pinkish, then shrivel into hard \"mummies\" instead of ripening",
+        "Mummified berries fall to the ground and can reinfect next season"
+      ],
+      "control": [
+        "Rake and remove mummified berries and fallen leaves from under bushes in fall/winter",
+        "Apply a layer of mulch to bury fungal spores in soil",
+        "Prune for good air circulation",
+        "Fungicide spray at bud break and during bloom if disease was present previous year"
+      ]
+    },
+    {
+      "disease": "Anthracnose (Ripe Rot)",
+      "symptoms": [
+        "Soft, sunken spots on ripening berries",
+        "Pinkish/orange spore masses appear on infected fruit in humid weather",
+        "Fruit shrivels and rots quickly, especially after rain",
+        "Can also cause leaf spotting and twig dieback"
+      ],
+      "control": [
+        "Prune bushes to improve airflow and sunlight penetration",
+        "Avoid overhead irrigation — use drip irrigation instead",
+        "Harvest fruit promptly when ripe; don't let it sit",
+        "Fungicide spray (copper-based) during bloom and fruit development"
+      ]
+    },
+    {
+      "disease": "Botrytis Blight (Gray Mold)",
+      "symptoms": [
+        "Blossoms turn brown and wilt",
+        "Grayish fuzzy mold on flowers, shoots, and fruit",
+        "Berries rot and develop soft, mushy grey coating",
+        "Worse in cool, wet, humid weather"
+      ],
+      "control": [
+        "Prune bushes for better air circulation",
+        "Avoid overhead watering, especially during bloom",
+        "Remove and destroy infected blossoms/fruit",
+        "Fungicide spray during bloom period if weather is wet"
+      ]
+    },
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White powdery coating on upper leaf surface",
+        "Leaves may curl, yellow, and drop early",
+        "Reduced plant vigor and berry quality"
+      ],
+      "control": [
+        "Improve spacing and pruning for airflow",
+        "Avoid excess nitrogen fertilizer",
+        "Sulfur-based fungicide spray at first sign",
+        "Water at soil level, not on leaves"
+      ]
+    },
+    {
+      "disease": "Rust",
+      "symptoms": [
+        "Small yellow-orange spots on upper leaf surface",
+        "Orange powdery pustules on leaf undersides",
+        "Heavily infected leaves drop early, weakening bush"
+      ],
+      "control": [
+        "Remove and destroy fallen infected leaves",
+        "Improve air circulation through pruning",
+        "Avoid overhead watering",
+        "Fungicide (sulfur-based) spray during humid growing season"
+      ]
+    }
+  ],
+  "mango": [
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Black/dark brown spots on leaves, flowers, and fruit",
+        "Flower clusters turn black and drop (major cause of poor fruit set)",
+        "Fruit shows sunken, dark, spreading spots especially after ripening",
+        "Most damaging mango disease worldwide"
+      ],
+      "control": [
+        "Prune for good air circulation and sunlight",
+        "Remove and destroy infected plant parts",
+        "Avoid overhead irrigation during flowering",
+        "Copper-based fungicide spray during flowering and fruit development",
+        "Post-harvest hot water treatment of fruit can reduce storage rot"
+      ]
+    },
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White powdery coating on leaves, flowers, young fruit",
+        "Flowers and young fruit may drop prematurely",
+        "Distorted leaf and shoot growth in severe cases",
+        "Major cause of flower/fruit drop in mango"
+      ],
+      "control": [
+        "Prune for good airflow and sunlight penetration",
+        "Sulfur-based fungicide spray at flowering stage",
+        "Avoid excess nitrogen fertilizer",
+        "Remove heavily infected shoots"
+      ]
+    },
+    {
+      "disease": "Bacterial Canker",
+      "symptoms": [
+        "Water-soaked, angular spots on leaves that turn black",
+        "Raised, corky lesions on fruit and stems",
+        "Gum oozing from infected branches/stems",
+        "Fruit cracks and drops prematurely"
+      ],
+      "control": [
+        "Prune out infected branches, disinfect tools between cuts",
+        "Avoid overhead irrigation",
+        "Copper-based spray during rainy season",
+        "Avoid injuring trees (bacteria enter through wounds)"
+      ]
+    },
+    {
+      "disease": "Sooty Mold",
+      "symptoms": [
+        "Black, powdery/sooty coating on leaves and fruit surface",
+        "Doesn't directly damage tissue but blocks sunlight, reducing photosynthesis",
+        "Usually appears where insects (aphids, mealybugs, scale) have been feeding — mold grows on their sticky secretion (honeydew)"
+      ],
+      "control": [
+        "Control the insects causing honeydew (aphids, scale, mealybugs) with neem oil",
+        "Wash off mold with mild soapy water spray if infestation is light",
+        "Prune for better air circulation",
+        "Avoid excess nitrogen fertilizer (attracts sap-sucking insects)"
+      ]
+    },
+    {
+      "disease": "Dieback",
+      "symptoms": [
+        "Branches wilt, dry out, and die starting from the tip",
+        "Leaves turn brown and hang on branches instead of falling",
+        "Bark may show discoloration or cracking",
+        "Can spread down towards main trunk if untreated"
+      ],
+      "control": [
+        "Prune out and destroy affected branches, cutting well below visible damage",
+        "Disinfect pruning tools between cuts",
+        "Avoid tree stress (proper watering, balanced fertilization)",
+        "Copper fungicide spray on pruning wounds and during humid weather"
+      ]
+    }
+  ],
+  "raspberry": [
+    {
+      "disease": "Cane Blight",
+      "symptoms": [
+        "Dark brown/purple lesions at base of canes",
+        "Canes become brittle and break easily",
+        "Leaves on affected canes wilt and turn brown suddenly",
+        "Whole cane may die"
+      ],
+      "control": [
+        "Prune out and destroy infected canes at ground level",
+        "Disinfect pruning tools between cuts",
+        "Avoid mechanical injury to canes (entry point for fungus)",
+        "Ensure good spacing/airflow between plants",
+        "Fungicide spray after pruning"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Small, purplish spots on canes that turn grey with purple border (look like tiny craters)",
+        "Spots on leaves turn brown/grey with dark edges",
+        "Severe infection weakens canes, reduces yield"
+      ],
+      "control": [
+        "Prune out infected canes after harvest",
+        "Improve air circulation through proper spacing",
+        "Avoid overhead watering",
+        "Copper-based fungicide spray in early spring before bud break"
+      ]
+    },
+    {
+      "disease": "Leaf Spot",
+      "symptoms": [
+        "Small, brown/purple spots on leaves, often with lighter centers",
+        "Spots may merge into larger blotches",
+        "Heavily spotted leaves turn yellow and drop early"
+      ],
+      "control": [
+        "Remove and destroy fallen infected leaves",
+        "Improve air circulation via pruning",
+        "Avoid overhead watering",
+        "Fungicide (copper-based) spray if disease is spreading"
+      ]
+    },
+    {
+      "disease": "Gray Mold (Botrytis)",
+      "symptoms": [
+        "Grayish fuzzy mold on ripening berries",
+        "Berries turn soft, mushy, and rot quickly, especially after rain",
+        "Flowers may also show browning and wilting"
+      ],
+      "control": [
+        "Prune canes for good airflow",
+        "Avoid overhead watering, especially near harvest",
+        "Harvest ripe berries promptly, don't let them sit",
+        "Fungicide spray during bloom in wet weather"
+      ]
+    },
+    {
+      "disease": "Rust",
+      "symptoms": [
+        "Orange, powdery pustules on leaf undersides",
+        "Yellow spots on upper leaf surface",
+        "Heavily infected leaves drop early, weakening plant",
+        "Can also affect canes with orange blister-like spots"
+      ],
+      "control": [
+        "Remove and destroy infected leaves and canes",
+        "Improve air circulation through pruning",
+        "Avoid overhead watering",
+        "Fungicide (sulfur-based) spray during humid conditions"
+      ]
+    }
+  ],
+  "apple": [
+    {
+      "disease": "Apple Scab",
+      "symptoms": [
+        "Olive-green to black velvety spots on leaves",
+        "Leaves may pucker, curl, or drop early",
+        "Fruit shows dark, scabby, corky spots — often cracks",
+        "Most common and damaging apple disease worldwide"
+      ],
+      "control": [
+        "Rake and destroy fallen leaves in autumn (fungus overwinters there)",
+        "Prune for good air circulation",
+        "Plant scab-resistant apple varieties if available",
+        "Fungicide spray starting at bud break, continuing through wet spring weather"
+      ]
+    },
+    {
+      "disease": "Black Rot",
+      "symptoms": [
+        "Purple-bordered brown spots on leaves (\"frog-eye leaf spot\")",
+        "Fruit shows brown-black rotten spots, often starting at the blossom end, with concentric rings",
+        "Cankers on branches with reddish-brown, sunken bark"
+      ],
+      "control": [
+        "Prune out and destroy cankered branches and dead wood",
+        "Remove mummified fruit from tree and ground",
+        "Avoid tree stress (proper watering, fertilization)",
+        "Fungicide spray during growing season, especially after wounds/pruning"
+      ]
+    },
+    {
+      "disease": "Cedar Apple Rust",
+      "symptoms": [
+        "Bright yellow-orange spots on upper leaf surface",
+        "Orange, tube-like structures may form on leaf undersides",
+        "Fruit can show yellow spots too, becoming distorted",
+        "Needs nearby cedar/juniper trees to complete its lifecycle"
+      ],
+      "control": [
+        "Remove nearby cedar/juniper trees if possible (alternate host)",
+        "Plant rust-resistant apple varieties",
+        "Fungicide spray from pink bud stage through early summer",
+        "Prune for good air circulation"
+      ]
+    },
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White powdery coating on leaves, shoots, and buds",
+        "Leaves curl, appear silvery, and may be stunted",
+        "Infected shoots grow poorly, look pale"
+      ],
+      "control": [
+        "Prune out infected shoots during dormant season",
+        "Improve air circulation and sunlight penetration",
+        "Sulfur-based fungicide spray starting at bud break",
+        "Avoid excess nitrogen fertilizer"
+      ]
+    },
+    {
+      "disease": "Fire Blight",
+      "symptoms": [
+        "Blossoms and young shoots wilt suddenly, turn black, look \"burnt\"",
+        "Shoot tips often curl into a \"shepherd's crook\" shape",
+        "Cankers on branches, oozing amber-colored sap",
+        "Can spread rapidly and kill entire trees if untreated"
+      ],
+      "control": [
+        "Prune out infected branches at least 12 inches below visible damage, during dry weather",
+        "Disinfect pruning tools between every cut",
+        "Avoid excess nitrogen fertilizer (soft growth is more susceptible)",
+        "Copper spray during dormant season and at bloom time",
+        "Avoid overhead irrigation"
+      ]
+    }
+  ],
+  "tomato": [
+    {
+      "disease": "Early Blight",
+      "symptoms": [
+        "Dark brown spots with concentric rings (\"target\" pattern) on older/lower leaves first",
+        "Yellowing around spots, leaves eventually dry and drop",
+        "Can also affect stems and fruit with dark, sunken lesions"
+      ],
+      "control": [
+        "Practice crop rotation (avoid tomato/potato family for 2–3 years)",
+        "Remove and destroy infected lower leaves and debris",
+        "Mulch soil to prevent spores splashing up from ground",
+        "Fungicide (chlorothalonil or copper-based) spray at first sign",
+        "Stake plants to improve airflow"
+      ]
+    },
+    {
+      "disease": "Late Blight",
+      "symptoms": [
+        "Water-soaked, dark green-black patches on leaves, spreading fast",
+        "White fuzzy mold on leaf undersides in humid weather",
+        "Fruit shows large, greasy-looking brown-black patches",
+        "Can destroy entire crop within days in cool, wet weather"
+      ],
+      "control": [
+        "Use certified disease-free seedlings",
+        "Destroy infected plants immediately — spreads very fast",
+        "Avoid overhead irrigation; water early in the day",
+        "Fungicide (copper-based) spray preventively during humid/rainy season",
+        "Ensure good spacing for airflow"
+      ]
+    },
+    {
+      "disease": "Septoria Leaf Spot",
+      "symptoms": [
+        "Small, circular spots with dark border and grey/tan center on lower leaves",
+        "Tiny black dots visible in spot centers (fungal fruiting bodies)",
+        "Leaves turn yellow, then brown, and drop starting from bottom of plant"
+      ],
+      "control": [
+        "Remove and destroy infected lower leaves",
+        "Mulch to prevent soil splash onto leaves",
+        "Avoid overhead watering",
+        "Crop rotation for 2 years",
+        "Fungicide spray if disease is spreading"
+      ]
+    },
+    {
+      "disease": "Bacterial Spot",
+      "symptoms": [
+        "Small, dark, water-soaked spots on leaves with yellow halo",
+        "Spots may merge, causing leaf yellowing and drop",
+        "Fruit shows raised, scab-like brown spots"
+      ],
+      "control": [
+        "Use certified disease-free seeds/seedlings",
+        "Avoid overhead watering",
+        "Rotate crops away from tomato/pepper family",
+        "Copper-based spray to slow spread",
+        "Avoid working with wet plants"
+      ]
+    },
+    {
+      "disease": "Leaf Mold",
+      "symptoms": [
+        "Pale yellow spots on upper leaf surface",
+        "Olive-green to grayish-purple fuzzy mold on leaf undersides",
+        "Common in humid greenhouse/polyhouse conditions",
+        "Leaves curl, wither, and drop in severe cases"
+      ],
+      "control": [
+        "Improve ventilation (especially in greenhouses/polyhouses)",
+        "Avoid overhead watering; reduce humidity",
+        "Space plants well for airflow",
+        "Fungicide spray if conditions stay humid"
+      ]
+    },
+    {
+      "disease": "Target Spot",
+      "symptoms": [
+        "Brown spots with concentric rings on leaves, similar to early blight but often smaller",
+        "Spots on stems and fruit too, with sunken, dark lesions on fruit",
+        "Leaves yellow and drop starting from bottom"
+      ],
+      "control": [
+        "Improve air circulation through pruning/staking",
+        "Avoid overhead watering",
+        "Remove infected plant debris",
+        "Fungicide spray during humid weather"
+      ]
+    },
+    {
+      "disease": "Mosaic Virus",
+      "symptoms": [
+        "Mottled yellow-green pattern on leaves",
+        "Leaves curled, distorted, or fern-like (narrow)",
+        "Stunted growth, reduced fruit yield",
+        "Fruit may show discoloration or uneven ripening"
+      ],
+      "control": [
+        "Control aphids (main carriers)",
+        "Remove and destroy infected plants immediately — no cure",
+        "Wash hands/tools after handling tobacco products (can spread virus)",
+        "Use virus-resistant varieties"
+      ]
+    },
+    {
+      "disease": "Yellow Leaf Curl Virus",
+      "symptoms": [
+        "Leaves curl upward and turn yellow, especially at margins",
+        "Severely stunted plant growth",
+        "Flowers drop, very poor fruit set",
+        "Spread by whiteflies"
+      ],
+      "control": [
+        "Control whiteflies using yellow sticky traps or neem oil",
+        "Use virus-resistant tomato varieties",
+        "Remove and destroy infected plants immediately",
+        "Use insect-proof nets/row covers on young plants"
+      ]
+    },
+    {
+      "disease": "Spider Mite Damage",
+      "symptoms": [
+        "Fine yellow/white speckling (\"stippling\") on leaves",
+        "Leaves may appear bronzed or dry, with fine webbing visible under magnification",
+        "Worse in hot, dry weather"
+      ],
+      "control": [
+        "Spray plants with water to dislodge mites (they dislike moisture)",
+        "Use neem oil or insecticidal soap spray",
+        "Avoid excess dust and drought stress",
+        "Introduce natural predators (ladybugs) if possible"
+      ]
+    }
+  ],
+  "grape": [
+    {
+      "disease": "Black Rot",
+      "symptoms": [
+        "Small, brown circular spots on leaves with dark border",
+        "Fruit shows small light spots that expand, turning fruit into shriveled black \"mummies\"",
+        "Cane lesions may also appear"
+      ],
+      "control": [
+        "Remove and destroy mummified fruit and infected leaves",
+        "Prune for good air circulation",
+        "Fungicide spray starting early in the season (bud break) through fruit development",
+        "Avoid overhead watering"
+      ]
+    },
+    {
+      "disease": "Esca (Black Measles)",
+      "symptoms": [
+        "\"Tiger stripe\" pattern — yellow/red streaks between leaf veins",
+        "Small dark spots on berries with purple ring (\"measles\" look)",
+        "Wood shows dark streaking inside when cut",
+        "Vine can decline suddenly and die (apoplexy)"
+      ],
+      "control": [
+        "No cure once infected — remove and destroy severely affected vines",
+        "Prune during dry weather to reduce infection risk",
+        "Protect large pruning wounds with wound sealant",
+        "Avoid stressing vines (proper watering, balanced nutrition)"
+      ]
+    },
+    {
+      "disease": "Leaf Blight (Isariopsis Leaf Spot)",
+      "symptoms": [
+        "Angular, brown-black spots on leaves",
+        "Spots may merge, causing large dead patches",
+        "Heavily infected leaves dry up and drop early",
+        "Weakens vine over time"
+      ],
+      "control": [
+        "Remove and destroy fallen infected leaves",
+        "Improve air circulation through pruning/canopy management",
+        "Fungicide (copper-based) spray during wet season",
+        "Avoid overhead irrigation"
+      ]
+    },
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White powdery coating on leaves, shoots, and berries",
+        "Leaves may curl or distort",
+        "Berries can crack or fail to develop properly",
+        "One of the most common grape diseases"
+      ],
+      "control": [
+        "Prune for good sunlight penetration and airflow",
+        "Sulfur-based fungicide spray starting early season",
+        "Avoid excess nitrogen fertilizer",
+        "Remove heavily infected shoots"
+      ]
+    },
+    {
+      "disease": "Downy Mildew",
+      "symptoms": [
+        "Yellow, oily-looking spots on upper leaf surface",
+        "White, cottony fungal growth on leaf undersides (especially in humid mornings)",
+        "Berries can shrivel and turn brown/leathery",
+        "Spreads fast in wet, humid weather"
+      ],
+      "control": [
+        "Improve airflow through canopy management/pruning",
+        "Avoid overhead watering; water early in the day",
+        "Copper-based fungicide spray preventively during humid season",
+        "Remove infected leaves and shoots promptly"
+      ]
+    }
+  ],
+  "onion": [
+    {
+      "disease": "Purple Blotch",
+      "symptoms": [
+        "Small, water-soaked spots on leaves that turn purple-brown with yellow border",
+        "Spots enlarge, forming concentric rings",
+        "Leaves may collapse and die from the tip down",
+        "Can also affect bulbs, causing soft rot in storage"
+      ],
+      "control": [
+        "Practice crop rotation (2–3 years away from onion family)",
+        "Avoid overhead irrigation",
+        "Ensure good field drainage and plant spacing",
+        "Fungicide (copper-based) spray at first sign, repeat every 7–10 days in humid weather"
+      ]
+    },
+    {
+      "disease": "Downy Mildew",
+      "symptoms": [
+        "Pale yellow, oval patches on leaves",
+        "Grayish-purple fuzzy mold on leaf surface in humid weather",
+        "Leaves collapse and wither from the tip",
+        "Bulbs may be smaller, poor storage quality"
+      ],
+      "control": [
+        "Avoid overhead watering; water at soil level",
+        "Ensure good field drainage and airflow",
+        "Remove infected plants/leaves promptly",
+        "Copper-based fungicide spray during cool, humid conditions"
+      ]
+    },
+    {
+      "disease": "Stemphylium Leaf Blight",
+      "symptoms": [
+        "Small, yellow-brown spots on leaves, often starting at tip",
+        "Spots enlarge, turn dark brown/black with a fuzzy look",
+        "Leaves die from tip downward, especially in fields already weakened by other diseases"
+      ],
+      "control": [
+        "Improve air circulation through proper spacing",
+        "Avoid overhead irrigation",
+        "Remove infected plant debris after harvest",
+        "Fungicide spray if combined with purple blotch infection"
+      ]
+    },
+    {
+      "disease": "White Rot",
+      "symptoms": [
+        "Yellowing and wilting of leaves, starting from the tip",
+        "White, fluffy fungal growth at base of bulb, with small black specks (sclerotia)",
+        "Roots rot away, bulb becomes soft and decayed",
+        "Can persist in soil for many years"
+      ],
+      "control": [
+        "Avoid planting onions in infected soil for several years (rotate to non-host crops)",
+        "Use certified disease-free sets/seedlings",
+        "Remove and destroy infected plants immediately",
+        "Improve field drainage",
+        "No effective fungicide cure — prevention is key"
+      ]
+    },
+    {
+      "disease": "Basal Rot",
+      "symptoms": [
+        "Yellowing and dieback of leaf tips, progressing downward",
+        "Rot starts at the base (root plate) of the bulb, turning brown/pink",
+        "Roots may be sparse or absent",
+        "Bulbs rot further in storage"
+      ],
+      "control": [
+        "Use certified disease-free sets/seedlings",
+        "Practice crop rotation (3–4 years)",
+        "Avoid injuring bulbs during harvest and handling",
+        "Ensure good field drainage",
+        "Cure bulbs properly (dry them well) before storage"
+      ]
+    }
+  ],
+  "pineapple": [
+    {
+      "disease": "Heart Rot",
+      "symptoms": [
+        "Central young leaves turn pale, then brown/black, and rot",
+        "Rotten leaves can be pulled out easily with a foul smell",
+        "Plant growth stops; center collapses",
+        "Common in waterlogged or poorly drained soil"
+      ],
+      "control": [
+        "Ensure good field drainage — avoid waterlogging",
+        "Use disease-free planting material",
+        "Avoid injuring the plant's central growing point",
+        "Fungicide drench (copper-based) at planting if disease-prone area"
+      ]
+    },
+    {
+      "disease": "Fruit Collapse",
+      "symptoms": [
+        "Internal breakdown/fermentation of fruit flesh, though outside may look normal",
+        "Fruit feels soft or watery when pressed",
+        "Often triggered by physical stress (bruising, temperature shock) combined with bacterial invasion",
+        "Fruit unsuitable for sale once affected"
+      ],
+      "control": [
+        "Handle fruit carefully during harvest to avoid bruising",
+        "Avoid extreme temperature fluctuations during storage/transport",
+        "Harvest at proper maturity — don't over-ripen on the plant",
+        "Ensure good field sanitation to reduce bacterial load"
+      ]
+    },
+    {
+      "disease": "Mealybug Wilt",
+      "symptoms": [
+        "Leaves turn reddish/pink and curl at the tips",
+        "Overall wilting and yellowing of the plant",
+        "Roots may also decline",
+        "Caused by a virus spread by mealybugs, often linked with ant activity protecting the mealybugs"
+      ],
+      "control": [
+        "Control mealybugs and ants using neem oil or insecticidal soap",
+        "Remove and destroy severely infected plants",
+        "Use disease-free planting material",
+        "Keep field free of weeds that host mealybugs"
+      ]
+    },
+    {
+      "disease": "Black Rot",
+      "symptoms": [
+        "Soft, watery, black rot developing at wound sites on fruit (common after harvest injury)",
+        "Rot spreads quickly, fruit becomes mushy",
+        "Strong fermented smell from affected fruit"
+      ],
+      "control": [
+        "Handle fruit carefully to avoid wounds during harvest",
+        "Treat harvested fruit with fungicide dip if storing/transporting",
+        "Store fruit in cool, dry conditions",
+        "Discard damaged fruit promptly to prevent spread"
+      ]
+    },
+    {
+      "disease": "Leaf Spot",
+      "symptoms": [
+        "Small, yellow-brown spots on leaves, may enlarge over time",
+        "Spots can merge into larger dead patches",
+        "Generally a minor disease but can weaken plant if severe"
+      ],
+      "control": [
+        "Remove and destroy infected leaves",
+        "Ensure good field drainage and spacing",
+        "Avoid overhead irrigation",
+        "Fungicide (copper-based) spray if spreading significantly"
+      ]
+    }
+  ],
+  "coffee": [
+    {
+      "disease": "Coffee Leaf Rust",
+      "symptoms": [
+        "Yellow-orange powdery spots on leaf undersides",
+        "Corresponding yellow patches visible on upper leaf surface",
+        "Heavily infected leaves drop early, weakening the plant",
+        "One of the most destructive coffee diseases worldwide"
+      ],
+      "control": [
+        "Plant rust-resistant coffee varieties if available",
+        "Prune to improve air circulation and reduce shade",
+        "Maintain balanced fertilization (avoid nitrogen deficiency, which increases susceptibility)",
+        "Copper-based fungicide spray at start of rainy season"
+      ]
+    },
+    {
+      "disease": "Brown Eye Spot",
+      "symptoms": [
+        "Circular brown spots with yellow halo on leaves",
+        "Spots may have dark concentric rings",
+        "Can also affect berries, causing dark lesions",
+        "Worse in shaded, humid conditions with poor nutrition"
+      ],
+      "control": [
+        "Improve field drainage and reduce excess shade",
+        "Maintain proper plant nutrition (potassium deficiency increases risk)",
+        "Remove and destroy infected leaves",
+        "Fungicide spray during humid season if disease is spreading"
+      ]
+    },
+    {
+      "disease": "Coffee Berry Disease",
+      "symptoms": [
+        "Dark, sunken lesions on green berries",
+        "Berries shrivel, turn black, and fall prematurely",
+        "Can affect berries at any stage, but young berries are most vulnerable",
+        "Major cause of yield loss in humid highland coffee regions"
+      ],
+      "control": [
+        "Plant resistant coffee varieties if available",
+        "Prune for good air circulation",
+        "Remove and destroy infected berries",
+        "Fungicide (copper-based) spray during flowering and berry development in humid weather"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Dark, sunken spots on leaves, twigs, and berries",
+        "Dieback of young shoots",
+        "Berries show black rot, especially post-harvest",
+        "Common in stressed or poorly maintained plants"
+      ],
+      "control": [
+        "Prune out dead/infected twigs",
+        "Maintain proper irrigation and nutrition to reduce plant stress",
+        "Avoid berry injury during harvest",
+        "Copper-based fungicide spray in wet conditions"
+      ]
+    },
+    {
+      "disease": "Bacterial Blight",
+      "symptoms": [
+        "Water-soaked, dark spots on leaves that enlarge and turn black",
+        "Blighted shoots and dieback, especially after cold or wet weather",
+        "Blackened, dead leaf margins",
+        "Can affect flowers, reducing berry set"
+      ],
+      "control": [
+        "Prune out and destroy infected branches",
+        "Avoid working with wet plants (spreads bacteria)",
+        "Use windbreaks to protect from cold, wet winds",
+        "Copper spray during high-risk (cold, wet) periods"
+      ]
+    }
+  ],
+  "jute": [
+    {
+      "disease": "Stem Rot",
+      "symptoms": [
+        "Dark brown/black lesions on stem, usually near soil level",
+        "Stem becomes weak and may break or lodge (fall over)",
+        "Plant wilts and dies in severe cases",
+        "Fiber quality reduced significantly"
+      ],
+      "control": [
+        "Ensure good field drainage — avoid waterlogging",
+        "Practice crop rotation",
+        "Remove and destroy infected plants",
+        "Use disease-free certified seeds",
+        "Avoid excess plant density (improves airflow)"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Dark, sunken spots on leaves, stems, and pods",
+        "Spots may have pinkish spore masses in humid weather",
+        "Stem lesions can girdle and weaken the plant",
+        "Leaves may show holes where spots have dried and fallen out"
+      ],
+      "control": [
+        "Use certified disease-free seeds",
+        "Practice crop rotation (2–3 years)",
+        "Remove and destroy infected plant debris after harvest",
+        "Fungicide (copper-based) spray if disease appears early"
+      ]
+    },
+    {
+      "disease": "Black Band",
+      "symptoms": [
+        "Dark black band/lesion encircling the stem, usually at soil level",
+        "Plant wilts above the affected band",
+        "Stem may rot and break at the infection site",
+        "Common in waterlogged fields"
+      ],
+      "control": [
+        "Improve field drainage — avoid waterlogging",
+        "Practice crop rotation",
+        "Use disease-free seeds",
+        "Remove and destroy severely infected plants"
+      ]
+    },
+    {
+      "disease": "Root Rot",
+      "symptoms": [
+        "Yellowing and wilting of leaves, starting from lower plant",
+        "Roots appear dark, mushy, and decayed when pulled up",
+        "Plant can be easily uprooted due to weak root system",
+        "Stunted growth overall"
+      ],
+      "control": [
+        "Ensure good field drainage",
+        "Avoid overwatering",
+        "Practice crop rotation",
+        "Use disease-free seeds and treat with fungicide before sowing if available"
+      ]
+    },
+    {
+      "disease": "Leaf Mosaic",
+      "symptoms": [
+        "Mottled yellow-green pattern on leaves",
+        "Leaves may appear distorted or smaller than normal",
+        "Stunted plant growth",
+        "Reduced fiber yield and quality"
+      ],
+      "control": [
+        "Control aphids and other sap-sucking insects (virus carriers)",
+        "Remove and destroy infected plants immediately",
+        "Use certified virus-free seeds",
+        "Keep field free of weeds that can host the virus"
+      ]
+    }
+  ],
+  "corn": [
+    {
+      "disease": "Common Rust",
+      "symptoms": [
+        "Small, reddish-brown powdery pustules on both leaf surfaces",
+        "Pustules turn dark brown/black as they mature",
+        "Heavily infected leaves may yellow and dry out",
+        "Worse in cool, humid weather"
+      ],
+      "control": [
+        "Plant rust-resistant corn hybrids if available",
+        "Ensure good field spacing for airflow",
+        "Avoid excess nitrogen fertilizer",
+        "Fungicide spray if infection is severe and weather stays humid"
+      ]
+    },
+    {
+      "disease": "Northern Leaf Blight",
+      "symptoms": [
+        "Long, elliptical, grey-green to tan lesions on leaves (cigar-shaped)",
+        "Lesions can merge, causing large areas of dead leaf tissue",
+        "Reduces photosynthesis and grain fill significantly"
+      ],
+      "control": [
+        "Plant resistant corn hybrids",
+        "Practice crop rotation (1–2 years away from corn)",
+        "Remove and destroy crop debris after harvest (fungus survives in residue)",
+        "Fungicide spray if disease appears early in season"
+      ]
+    },
+    {
+      "disease": "Gray Leaf Spot",
+      "symptoms": [
+        "Small, rectangular, tan to gray lesions on leaves, running parallel to leaf veins",
+        "Lesions expand and merge in severe infections",
+        "Leaves can die prematurely, reducing yield"
+      ],
+      "control": [
+        "Plant resistant hybrids",
+        "Practice crop rotation and residue management (till under old crop debris)",
+        "Ensure good field spacing",
+        "Fungicide spray during humid conditions if disease is spreading"
+      ]
+    },
+    {
+      "disease": "Southern Leaf Blight",
+      "symptoms": [
+        "Tan, elongated lesions on leaves with reddish-brown border",
+        "Lesions can merge, causing large dead patches",
+        "Can also affect ears and stalks in severe infections"
+      ],
+      "control": [
+        "Plant resistant corn hybrids",
+        "Crop rotation away from corn for 1–2 years",
+        "Remove and destroy infected crop debris",
+        "Fungicide spray if disease pressure is high"
+      ]
+    },
+    {
+      "disease": "Maize Streak Virus",
+      "symptoms": [
+        "Narrow, yellow-white streaks running parallel to leaf veins",
+        "Stunted plant growth",
+        "Poor ear/cob development, reduced yield",
+        "Spread by leafhopper insects"
+      ],
+      "control": [
+        "Control leafhoppers using neem oil or approved insecticide",
+        "Use virus-resistant corn varieties if available",
+        "Remove and destroy infected plants early",
+        "Plant early in the season to avoid peak leafhopper activity"
+      ]
+    }
+  ],
+  "chilli": [
+    {
+      "disease": "Anthracnose (Die-back)",
+      "symptoms": [
+        "Dark, sunken, circular spots on ripening fruit, often with concentric rings",
+        "Pinkish spore masses visible in center of spots in humid weather",
+        "Twigs and branches may die back from the tip",
+        "One of the most damaging chilli diseases, especially in humid regions"
+      ],
+      "control": [
+        "Use certified disease-free seeds",
+        "Practice crop rotation (2–3 years)",
+        "Avoid overhead irrigation",
+        "Remove and destroy infected fruit and plant debris",
+        "Fungicide (copper-based) spray during flowering and fruiting"
+      ]
+    },
+    {
+      "disease": "Bacterial Wilt",
+      "symptoms": [
+        "Sudden wilting of the whole plant, starting during hot daytime hours",
+        "Plant may recover slightly at night initially, but eventually stays wilted permanently",
+        "Cut stem oozes milky white bacterial fluid when placed in water",
+        "No cure once infected"
+      ],
+      "control": [
+        "Practice crop rotation (avoid solanaceous crops for 2–3 years)",
+        "Use disease-free seedlings",
+        "Ensure good field drainage",
+        "Remove and destroy infected plants immediately",
+        "Avoid injuring roots during transplanting/weeding"
+      ]
+    },
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White powdery coating on leaf undersides, sometimes upper surface too",
+        "Leaves yellow, curl, and may drop",
+        "Reduced fruit size and yield"
+      ],
+      "control": [
+        "Improve spacing and air circulation",
+        "Avoid excess nitrogen fertilizer",
+        "Sulfur-based fungicide spray at first sign",
+        "Water at soil level, not on leaves"
+      ]
+    },
+    {
+      "disease": "Cercospora Leaf Spot",
+      "symptoms": [
+        "Circular spots with gray/tan center and dark brown border (\"frog-eye\" look)",
+        "Older leaves affected first",
+        "Heavy infection causes leaf yellowing and drop"
+      ],
+      "control": [
+        "Remove infected leaves promptly",
+        "Avoid overhead watering",
+        "Crop rotation for 2 years",
+        "Fungicide (copper-based) spray if spreading"
+      ]
+    },
+    {
+      "disease": "Leaf Curl Virus",
+      "symptoms": [
+        "Leaves curl upward/downward, become thickened and brittle",
+        "Stunted plant growth, bushy/distorted appearance",
+        "Flowers drop, very poor fruit set",
+        "Spread by whiteflies"
+      ],
+      "control": [
+        "Control whiteflies using yellow sticky traps or neem oil",
+        "Use virus-resistant chilli varieties if available",
+        "Remove and destroy infected plants immediately",
+        "Use insect-proof nets on nursery seedlings"
+      ]
+    }
+  ],
+  "sugarcane": [
+    {
+      "disease": "Red Rot",
+      "symptoms": [
+        "Reddish discoloration inside the stalk when cut open, with white patches crossing the red (\"ladder\" pattern)",
+        "Leaves show yellowing and drying, starting from the top",
+        "Alcohol-like smell from split cane",
+        "One of the most destructive sugarcane diseases"
+      ],
+      "control": [
+        "Use certified disease-free seed cane (setts)",
+        "Practice crop rotation (avoid sugarcane for 1 year)",
+        "Remove and destroy infected plants immediately",
+        "Treat seed setts with hot water/fungicide before planting",
+        "Plant resistant varieties if available"
+      ]
+    },
+    {
+      "disease": "Smut",
+      "symptoms": [
+        "Long, black or dark grey whip-like structure emerging from the growing point (looks like a black whip)",
+        "Stunted, thin, grassy-looking shoots",
+        "Reduced cane yield and sugar content"
+      ],
+      "control": [
+        "Remove and destroy smut whips immediately (before they burst and spread spores) — cover with a bag while cutting",
+        "Use disease-free, hot-water treated seed setts",
+        "Plant resistant varieties",
+        "Avoid ratooning (regrowing from old stubble) heavily infected fields"
+      ]
+    },
+    {
+      "disease": "Rust",
+      "symptoms": [
+        "Small, orange-brown powdery pustules on leaves, mainly on undersides",
+        "Yellowing around pustules",
+        "Heavily infected leaves dry out, reducing photosynthesis and yield"
+      ],
+      "control": [
+        "Plant rust-resistant varieties",
+        "Avoid excess nitrogen fertilizer",
+        "Ensure good field drainage and spacing",
+        "Fungicide spray if infection is severe"
+      ]
+    },
+    {
+      "disease": "Mosaic",
+      "symptoms": [
+        "Irregular light green/yellow and dark green mottled pattern on leaves",
+        "Stunted growth, thin stalks",
+        "Reduced cane yield and sugar content",
+        "Spread by aphids"
+      ],
+      "control": [
+        "Use certified virus-free seed setts",
+        "Control aphids using neem oil",
+        "Remove and destroy infected plants",
+        "Plant resistant varieties if available"
+      ]
+    },
+    {
+      "disease": "Wilt",
+      "symptoms": [
+        "Yellowing and drying of leaves, starting from the top",
+        "Stalks show reddish internal discoloration but without the white crossbars seen in red rot",
+        "Roots decay, stalks become hollow and light",
+        "Plant may lodge (fall over) easily"
+      ],
+      "control": [
+        "Ensure good field drainage — avoid waterlogging",
+        "Use disease-free seed setts",
+        "Practice crop rotation",
+        "Avoid water stress (both excess and deficiency increase risk)"
+      ]
+    }
+  ],
+  "groundnut": [
+    {
+      "disease": "Early Leaf Spot",
+      "symptoms": [
+        "Small, dark brown circular spots on upper leaf surface with yellow halo",
+        "Spots appear earlier in the season compared to late leaf spot",
+        "Heavy infection causes leaf yellowing and drop, weakening the plant"
+      ],
+      "control": [
+        "Practice crop rotation (2–3 years away from groundnut)",
+        "Remove and destroy infected plant debris after harvest",
+        "Ensure good field spacing for airflow",
+        "Fungicide (copper or chlorothalonil-based) spray at first sign"
+      ]
+    },
+    {
+      "disease": "Late Leaf Spot",
+      "symptoms": [
+        "Dark brown to black circular spots on leaves, usually without a yellow halo (unlike early leaf spot)",
+        "Appears later in the crop cycle",
+        "Severe defoliation possible, significantly reducing pod yield"
+      ],
+      "control": [
+        "Crop rotation and field sanitation (remove debris)",
+        "Use resistant varieties if available",
+        "Fungicide spray, especially during flowering/pod formation stage",
+        "Avoid overhead irrigation late in the day"
+      ]
+    },
+    {
+      "disease": "Rust",
+      "symptoms": [
+        "Small, orange-brown powdery pustules on leaf undersides",
+        "Corresponding yellow spots on upper leaf surface",
+        "Leaves dry up and drop in severe infection, reducing yield"
+      ],
+      "control": [
+        "Plant rust-resistant varieties if available",
+        "Remove and destroy infected plant debris",
+        "Ensure good field drainage and spacing",
+        "Fungicide spray during humid conditions"
+      ]
+    },
+    {
+      "disease": "Bud Necrosis",
+      "symptoms": [
+        "Necrotic (dead, brown/black) rings or spots on leaves",
+        "Terminal bud dies, stunted plant growth with bushy appearance",
+        "Poor pod formation",
+        "Spread by thrips (small insects)"
+      ],
+      "control": [
+        "Control thrips using neem oil or approved insecticide",
+        "Remove and destroy infected plants immediately",
+        "Use resistant varieties if available",
+        "Plant early in the season, avoiding peak thrip activity periods"
+      ]
+    },
+    {
+      "disease": "Collar Rot",
+      "symptoms": [
+        "Rotting and darkening at the base of the stem (soil line)",
+        "Wilting of the whole plant as base rots",
+        "White fungal growth may be visible at the collar region in humid conditions",
+        "Plant can be easily uprooted due to rotted base"
+      ],
+      "control": [
+        "Use certified disease-free seeds, treated with fungicide before sowing",
+        "Ensure good field drainage — avoid waterlogging",
+        "Practice crop rotation",
+        "Avoid deep sowing (increases risk)"
+      ]
+    }
+  ],
+  "strawberry": [
+    {
+      "disease": "Leaf Scorch",
+      "symptoms": [
+        "Small, dark purple spots on leaves that merge, giving a scorched appearance",
+        "Leaves may curl and turn reddish-brown",
+        "Reduced plant vigor and fruit yield in severe cases"
+      ],
+      "control": [
+        "Remove and destroy infected leaves after harvest",
+        "Improve air circulation through proper spacing",
+        "Avoid overhead watering",
+        "Fungicide (copper-based) spray if disease is spreading"
+      ]
+    },
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White powdery coating on leaf undersides, leaves may curl upward",
+        "Purplish-red blotches can appear on leaves",
+        "Fruit can develop a dull, seedy appearance and stop ripening properly"
+      ],
+      "control": [
+        "Improve spacing and air circulation",
+        "Avoid excess nitrogen fertilizer",
+        "Sulfur-based fungicide spray at first sign",
+        "Water at soil level, not on leaves"
+      ]
+    },
+    {
+      "disease": "Gray Mold (Botrytis)",
+      "symptoms": [
+        "Grayish fuzzy mold on ripening fruit",
+        "Fruit turns soft, mushy, and rots quickly, especially after rain",
+        "Flowers may also show browning and wilting",
+        "Very common in humid weather near harvest time"
+      ],
+      "control": [
+        "Improve air circulation via proper plant spacing",
+        "Avoid overhead watering, especially near harvest",
+        "Use straw mulch to keep fruit off damp soil",
+        "Harvest ripe fruit promptly; remove infected fruit immediately"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Dark, sunken, circular spots on fruit",
+        "Pinkish spore masses visible in spots during humid weather",
+        "Can also cause crown rot, wilting the whole plant",
+        "Spreads rapidly in warm, wet conditions"
+      ],
+      "control": [
+        "Use certified disease-free plants",
+        "Avoid overhead irrigation",
+        "Remove and destroy infected fruit and plants",
+        "Fungicide (copper-based) spray during warm, humid weather"
+      ]
+    },
+    {
+      "disease": "Angular Leaf Spot",
+      "symptoms": [
+        "Small, angular, water-soaked spots on leaves (visible when held up to light)",
+        "Spots turn reddish-brown, bounded by leaf veins",
+        "Can spread to calyx (green cap) of fruit, affecting marketability"
+      ],
+      "control": [
+        "Use certified disease-free plants",
+        "Avoid overhead watering",
+        "Avoid working with wet plants (spreads bacteria)",
+        "Copper-based spray to reduce spread (no full cure)"
+      ]
+    }
+  ],
+  "paddy": [
+    {
+      "disease": "Bacterial Leaf Blight",
+      "symptoms": [
+        "Water-soaked streaks on leaf margins, turning yellow-white and drying out",
+        "Leaves wilt and turn straw-colored, starting from tip and edges",
+        "In severe cases, whole leaves can dry up (\"kresek\" wilting in young plants)"
+      ],
+      "control": [
+        "Use certified disease-free seeds",
+        "Avoid excess nitrogen fertilizer",
+        "Ensure good field drainage — avoid standing water for too long",
+        "Use resistant rice varieties if available",
+        "Avoid leaf injury during field operations"
+      ]
+    },
+    {
+      "disease": "Blast",
+      "symptoms": [
+        "Diamond/spindle-shaped lesions on leaves with gray center and brown border",
+        "Can also affect neck of the panicle, causing \"neck blast\" — panicle breaks and grain doesn't fill",
+        "One of the most destructive rice diseases worldwide"
+      ],
+      "control": [
+        "Use resistant rice varieties",
+        "Avoid excess nitrogen fertilizer",
+        "Maintain proper water management (avoid drought stress)",
+        "Fungicide spray at tillering and booting stages if disease-prone"
+      ]
+    },
+    {
+      "disease": "Brown Spot",
+      "symptoms": [
+        "Small, oval brown spots on leaves with yellow halo",
+        "Spots may also appear on grain, causing discoloration",
+        "Common in nutrient-deficient soils, especially low potassium"
+      ],
+      "control": [
+        "Use certified disease-free seeds",
+        "Improve soil fertility, especially potassium levels",
+        "Avoid water stress",
+        "Fungicide spray if infection is severe"
+      ]
+    },
+    {
+      "disease": "Sheath Blight",
+      "symptoms": [
+        "Oval, greenish-gray lesions with brown border on leaf sheath near water line",
+        "Lesions spread upward, can affect leaves and reduce grain fill",
+        "Common in densely planted, high-nitrogen fields"
+      ],
+      "control": [
+        "Avoid excess nitrogen fertilizer",
+        "Avoid overly dense planting (improves airflow)",
+        "Maintain proper water management",
+        "Fungicide spray during tillering to booting stage if disease appears"
+      ]
+    },
+    {
+      "disease": "Tungro Virus",
+      "symptoms": [
+        "Yellow-orange discoloration of leaves, starting from tip",
+        "Stunted plant growth",
+        "Reduced tillering and poor grain fill",
+        "Spread by green leafhopper insects"
+      ],
+      "control": [
+        "Control leafhoppers using neem oil or approved insecticide",
+        "Use virus-resistant rice varieties if available",
+        "Remove and destroy infected plants",
+        "Synchronize planting with neighboring fields to reduce leafhopper buildup"
+      ]
+    }
+  ],
+  "blackgram": [
+    {
+      "disease": "Yellow Mosaic Virus",
+      "symptoms": [
+        "Bright yellow and green mottled pattern on leaves",
+        "Leaves may become entirely yellow in severe infection",
+        "Stunted plant growth, reduced pod formation",
+        "One of the most damaging blackgram diseases"
+      ],
+      "control": [
+        "Control whiteflies (main virus carriers) using neem oil or yellow sticky traps",
+        "Use virus-resistant varieties if available",
+        "Remove and destroy infected plants early",
+        "Avoid planting near other virus-infected legume crops"
+      ]
+    },
+    {
+      "disease": "Leaf Crinkle Virus",
+      "symptoms": [
+        "Leaves become crinkled, curled, and thickened",
+        "Dark green, brittle leaf texture",
+        "Stunted, bushy plant growth",
+        "Reduced pod set"
+      ],
+      "control": [
+        "Control whiteflies and aphids (virus carriers)",
+        "Remove and destroy infected plants promptly",
+        "Use certified virus-free seeds",
+        "Use resistant varieties if available"
+      ]
+    },
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White powdery coating on leaves, especially undersides",
+        "Leaves yellow, curl, and may drop early",
+        "Reduced pod yield and quality"
+      ],
+      "control": [
+        "Improve spacing and airflow between plants",
+        "Avoid excess nitrogen fertilizer",
+        "Sulfur-based fungicide spray at first sign",
+        "Water at soil level, not on leaves"
+      ]
+    },
+    {
+      "disease": "Cercospora Leaf Spot",
+      "symptoms": [
+        "Circular brown spots with gray center and dark border on leaves",
+        "Spots may merge, causing large dead patches",
+        "Heavy infection causes leaf yellowing and early drop"
+      ],
+      "control": [
+        "Remove infected leaves promptly",
+        "Avoid overhead watering",
+        "Crop rotation for 2 years",
+        "Fungicide (copper-based) spray if spreading"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Dark, sunken lesions on leaves, stems, and pods",
+        "Pods may show shrunken, discolored patches",
+        "Seeds inside affected pods can be shriveled and poor quality"
+      ],
+      "control": [
+        "Use certified disease-free seeds",
+        "Avoid overhead irrigation",
+        "Crop rotation (2–3 years)",
+        "Remove and destroy infected plant debris",
+        "Fungicide spray at first sign"
+      ]
+    }
+  ],
+  "coconut": [
+    {
+      "disease": "Bud Rot",
+      "symptoms": [
+        "Rotting of the innermost, youngest leaves (spindle leaf) — turns yellow, then brown/black",
+        "Foul smell from the rotting bud",
+        "Affected leaves can be pulled out easily",
+        "Can kill the palm if the growing point (bud) is fully destroyed"
+      ],
+      "control": [
+        "Remove and destroy affected tissue if caught early, apply fungicide paste to wound",
+        "Ensure good field drainage — avoid waterlogging",
+        "Avoid injury to the crown area",
+        "Copper-based fungicide spray/drench during monsoon season as prevention"
+      ]
+    },
+    {
+      "disease": "Leaf Blight",
+      "symptoms": [
+        "Brown/gray spots or streaks on leaflets, often starting at leaf tips",
+        "Spots enlarge and may merge, causing large dead/dried leaf areas",
+        "Reduces the palm's photosynthesis and overall vigor"
+      ],
+      "control": [
+        "Remove and destroy severely affected leaves",
+        "Improve field drainage and reduce overcrowding",
+        "Copper-based fungicide spray during humid weather",
+        "Ensure balanced fertilization for palm health"
+      ]
+    },
+    {
+      "disease": "Stem Bleeding",
+      "symptoms": [
+        "Reddish-brown liquid oozing from cracks in the trunk (looks like bleeding)",
+        "Affected wood underneath turns dark and decayed",
+        "Trunk becomes weak, can crack or break in severe cases"
+      ],
+      "control": [
+        "Scrape off affected bark and apply fungicide paste to the wound",
+        "Avoid injuring the trunk during farm operations",
+        "Ensure good drainage — avoid waterlogged soil",
+        "Maintain palm health with balanced nutrition"
+      ]
+    },
+    {
+      "disease": "Root Wilt",
+      "symptoms": [
+        "Yellowing and drooping of leaves, starting from older/lower fronds",
+        "Roots show rotting and reduced growth",
+        "Nuts become smaller, fewer in number",
+        "Gradual decline in palm health over years — no complete cure"
+      ],
+      "control": [
+        "Maintain balanced fertilization and irrigation to support plant vigor",
+        "Improve field drainage",
+        "Remove severely affected, unproductive palms",
+        "Intercrop or manage soil health to support root systems"
+      ]
+    },
+    {
+      "disease": "Gray Leaf Spot",
+      "symptoms": [
+        "Small, gray-brown spots on leaflets with yellow halo",
+        "Spots may merge into larger dead patches",
+        "More common in nursery seedlings and young palms"
+      ],
+      "control": [
+        "Remove and destroy infected leaves",
+        "Ensure good spacing and airflow in nursery",
+        "Avoid overhead watering",
+        "Fungicide (copper-based) spray in nursery if disease appears"
+      ]
+    }
+  ],
+  "dragon_fruit": [
+    {
+      "disease": "Stem Canker",
+      "symptoms": [
+        "Small, dark, sunken spots on the fleshy stem (cactus-like body)",
+        "Spots enlarge, forming corky, brown, cracked lesions",
+        "Can lead to stem rot in severe cases, weakening the plant"
+      ],
+      "control": [
+        "Prune out and destroy infected stem sections",
+        "Disinfect cutting tools between plants",
+        "Improve air circulation (avoid overcrowded planting)",
+        "Copper-based fungicide spray if disease is spreading",
+        "Avoid overhead irrigation"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Dark, sunken, circular spots on stems and fruit",
+        "Pinkish spore masses visible in spots during humid weather",
+        "Fruit shows soft rot, especially post-harvest"
+      ],
+      "control": [
+        "Avoid overhead irrigation",
+        "Improve air circulation through proper spacing/trellising",
+        "Remove and destroy infected plant parts",
+        "Fungicide (copper-based) spray during humid weather"
+      ]
+    },
+    {
+      "disease": "Brown Spot",
+      "symptoms": [
+        "Small, brown-yellow spots on stem surface",
+        "Spots may have a slightly sunken, water-soaked appearance",
+        "Can affect fruit skin too, reducing marketability"
+      ],
+      "control": [
+        "Avoid overhead watering",
+        "Improve airflow between plants",
+        "Remove infected stem sections",
+        "Fungicide spray if disease is spreading"
+      ]
+    },
+    {
+      "disease": "Bacterial Soft Rot",
+      "symptoms": [
+        "Water-soaked, soft, mushy lesions on stems or fruit",
+        "Foul smell from affected tissue",
+        "Rot spreads quickly, especially in wet, humid weather",
+        "Often enters through wounds/injuries"
+      ],
+      "control": [
+        "Avoid injuring stems/fruit during handling",
+        "Ensure good field drainage",
+        "Remove and destroy infected plant parts immediately",
+        "Avoid overhead irrigation, especially in humid weather"
+      ]
+    },
+    {
+      "disease": "Rust",
+      "symptoms": [
+        "Small, orange-brown pustules on stem surface",
+        "Yellowing around pustules",
+        "Weakens plant vigor if infection is heavy"
+      ],
+      "control": [
+        "Improve air circulation via proper spacing",
+        "Remove and destroy infected stem parts",
+        "Avoid overhead watering",
+        "Fungicide (sulfur-based) spray during humid conditions"
+      ]
+    }
+  ],
+  "snake_gourd": [
+    {
+      "disease": "Downy Mildew",
+      "symptoms": [
+        "Yellow, angular spots on upper leaf surface",
+        "Grayish-purple fuzzy mold on leaf undersides, especially in humid mornings",
+        "Leaves curl, turn brown, and die",
+        "Spreads quickly in wet weather"
+      ],
+      "control": [
+        "Avoid overhead watering; water early in the day",
+        "Improve spacing/airflow between plants",
+        "Remove infected leaves immediately",
+        "Copper-based fungicide spray at first sign"
+      ]
+    },
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White, powdery spots on leaves and stems",
+        "Leaves eventually turn yellow, then brown and dry out",
+        "Reduced fruit size and vine vigor"
+      ],
+      "control": [
+        "Plant in full sun with good spacing",
+        "Avoid overhead watering",
+        "Sulfur or neem oil spray at first sign",
+        "Remove heavily infected leaves"
+      ]
+    },
+    {
+      "disease": "Anthracnose",
+      "symptoms": [
+        "Dark, sunken spots on leaves, stems, and fruit",
+        "Spots may have pink spore masses in humid weather",
+        "Fruit lesions sink in and rot",
+        "Leaves develop yellow-brown spots and shrivel"
+      ],
+      "control": [
+        "Use certified disease-free seeds",
+        "Avoid overhead irrigation",
+        "Rotate crops (2 years away from gourd family)",
+        "Remove and destroy infected plant debris"
+      ]
+    },
+    {
+      "disease": "Mosaic Virus",
+      "symptoms": [
+        "Mottled yellow-green pattern on leaves",
+        "Leaves curled, distorted, and stunted",
+        "Fruit may be bumpy, discolored, or misshapen",
+        "Overall stunted vine growth"
+      ],
+      "control": [
+        "Control aphids and beetles (main virus carriers)",
+        "Remove and destroy infected plants immediately — no cure",
+        "Use virus-resistant varieties if available",
+        "Keep field free of weeds that can host the virus"
+      ]
+    },
+    {
+      "disease": "Fruit Rot",
+      "symptoms": [
+        "Soft, watery rot on fruit, often starting at the blossom end or where fruit touches soil",
+        "Fruit surface may show fuzzy mold in humid conditions",
+        "Rapid spread and spoilage after infection begins"
+      ],
+      "control": [
+        "Use trellising to keep fruit off the ground",
+        "Avoid overhead watering",
+        "Harvest fruit promptly at maturity",
+        "Remove and destroy infected fruit right away"
+      ]
+    }
+  ],
+  "wheat": [
+    {
+      "disease": "Leaf Rust",
+      "symptoms": [
+        "Small, round, orange-brown pustules scattered on leaf surface",
+        "Pustules can be rubbed off, leaving orange powder on fingers",
+        "Heavy infection causes leaf yellowing and drying, reducing grain fill"
+      ],
+      "control": [
+        "Plant rust-resistant wheat varieties",
+        "Avoid excess nitrogen fertilizer",
+        "Timely sowing (avoid late planting which increases risk)",
+        "Fungicide spray if infection appears early and weather stays favorable for spread"
+      ]
+    },
+    {
+      "disease": "Stripe (Yellow) Rust",
+      "symptoms": [
+        "Yellow-orange pustules arranged in narrow stripes along leaf veins",
+        "Stripes give a distinct linear pattern (unlike leaf rust's scattered spots)",
+        "Severe infection stunts plants and reduces grain quality"
+      ],
+      "control": [
+        "Plant resistant wheat varieties",
+        "Timely sowing to avoid peak disease-favorable conditions",
+        "Monitor fields regularly during cool, humid weather",
+        "Fungicide spray at first sign, especially in susceptible varieties"
+      ]
+    },
+    {
+      "disease": "Stem Rust",
+      "symptoms": [
+        "Large, reddish-brown, raised pustules on stems and leaf sheaths (not just leaves)",
+        "Pustules can rupture the plant surface, giving a rough, torn appearance",
+        "Can cause stems to weaken and lodge (fall over)"
+      ],
+      "control": [
+        "Plant resistant varieties",
+        "Avoid late sowing",
+        "Remove volunteer wheat plants (can harbor the fungus between seasons)",
+        "Fungicide spray if disease pressure is high"
+      ]
+    },
+    {
+      "disease": "Powdery Mildew",
+      "symptoms": [
+        "White powdery coating on leaves, stems, and leaf sheaths",
+        "Leaves may yellow and dry prematurely",
+        "Worse in dense, over-fertilized crops with poor air circulation"
+      ],
+      "control": [
+        "Avoid excess nitrogen fertilizer",
+        "Ensure proper seeding rate (avoid overly dense planting)",
+        "Plant resistant varieties if available",
+        "Sulfur-based fungicide spray at first sign"
+      ]
+    },
+    {
+      "disease": "Septoria Leaf Blotch",
+      "symptoms": [
+        "Irregular, brown-yellow blotches on leaves with tiny black dots inside (fungal fruiting bodies)",
+        "Lesions may merge, causing large areas of dead leaf tissue",
+        "Spreads from lower to upper leaves over the season"
+      ],
+      "control": [
+        "Practice crop rotation",
+        "Remove and destroy infected crop debris after harvest",
+        "Avoid excess nitrogen fertilizer",
+        "Fungicide spray at early growth stages if disease is present"
+      ]
+    }
+  ],
+  "soybean": [
+    {
+      "disease": "Rust",
+      "symptoms": [
+        "Small, reddish-brown pustules on leaf undersides",
+        "Yellowing on upper leaf surface corresponding to pustules",
+        "Heavily infected leaves dry up and drop early, reducing pod fill"
+      ],
+      "control": [
+        "Plant rust-resistant varieties if available",
+        "Ensure good field spacing for airflow",
+        "Avoid overhead irrigation late in the day",
+        "Fungicide spray at first sign during humid conditions"
+      ]
+    },
+    {
+      "disease": "Bacterial Blight",
+      "symptoms": [
+        "Small, angular, water-soaked spots on leaves that turn brown with yellow halo",
+        "Spots may merge, causing large dead patches",
+        "Leaves can tear and shred where spots have dried out"
+      ],
+      "control": [
+        "Use certified disease-free seeds",
+        "Avoid working with wet plants",
+        "Crop rotation for 2 years",
+        "Copper-based spray to reduce spread"
+      ]
+    },
+    {
+      "disease": "Mosaic Virus",
+      "symptoms": [
+        "Mottled yellow-green pattern on leaves",
+        "Leaves curled, puckered, and distorted",
+        "Stunted growth, reduced pod set",
+        "Seeds from infected plants may be discolored/mottled"
+      ],
+      "control": [
+        "Control aphids (main virus carriers)",
+        "Remove and destroy infected plants immediately",
+        "Use virus-resistant varieties",
+        "Use certified virus-free seeds"
+      ]
+    },
+    {
+      "disease": "Charcoal Rot",
+      "symptoms": [
+        "Grayish discoloration and shredding of stem tissue near the base, with tiny black specks visible under the bark (like charcoal dust)",
+        "Wilting of leaves in hot, dry weather",
+        "Premature plant death, especially under drought stress"
+      ],
+      "control": [
+        "Avoid drought stress — irrigate during dry spells",
+        "Practice crop rotation",
+        "Avoid excess plant density",
+        "Remove and destroy infected plant debris after harvest"
+      ]
+    },
+    {
+      "disease": "Pod Blight / Anthracnose",
+      "symptoms": [
+        "Dark, irregular lesions on pods and stems",
+        "Pods may fail to fill properly, seeds shriveled",
+        "Dark streaking on stems visible when split open"
+      ],
+      "control": [
+        "Use certified disease-free seeds",
+        "Avoid overhead irrigation",
+        "Remove and destroy infected crop residue",
+        "Fungicide spray during pod formation if humid"
+      ]
+    }
+  ],
+  "cotton": [
+    {
+      "disease": "Bacterial Blight (Angular Leaf Spot)",
+      "symptoms": [
+        "Small, angular, water-soaked spots on leaves, turning dark brown/black",
+        "Spots often follow leaf veins, giving angular shape",
+        "Can affect bolls too, causing black rot spots",
+        "Stem may show dark streaks (black arm symptom)"
+      ],
+      "control": [
+        "Use certified disease-free seeds",
+        "Avoid overhead irrigation",
+        "Crop rotation (2–3 years)",
+        "Remove and destroy infected plant debris",
+        "Copper-based spray to slow spread"
+      ]
+    },
+    {
+      "disease": "Fusarium Wilt",
+      "symptoms": [
+        "Yellowing and wilting of leaves, often starting on one side of the plant",
+        "Vascular tissue (visible when stem is cut) shows brown discoloration",
+        "Stunted growth, plant may die in severe cases",
+        "Worse in warm soil conditions"
+      ],
+      "control": [
+        "Use resistant varieties if available",
+        "Practice long crop rotation (3+ years)",
+        "Ensure good field drainage",
+        "Avoid root injury during field operations"
+      ]
+    },
+    {
+      "disease": "Verticillium Wilt",
+      "symptoms": [
+        "Yellowing between leaf veins, leaves develop a mottled \"tiger stripe\" pattern",
+        "Leaves may wilt and drop, starting from lower plant",
+        "Vascular discoloration inside stem, similar to Fusarium wilt but usually lighter",
+        "Worse in cooler weather compared to Fusarium wilt"
+      ],
+      "control": [
+        "Use resistant/tolerant varieties",
+        "Practice crop rotation with non-host crops",
+        "Avoid over-irrigation",
+        "Maintain balanced soil fertility"
+      ]
+    },
+    {
+      "disease": "Leaf Curl Virus",
+      "symptoms": [
+        "Upward or downward curling of leaves",
+        "Thickened, leathery leaf texture with vein swelling (enations) on leaf undersides",
+        "Stunted plant growth, reduced boll formation",
+        "Spread by whiteflies — a major cotton disease in India"
+      ],
+      "control": [
+        "Control whiteflies using yellow sticky traps or neem oil",
+        "Use virus-resistant cotton varieties",
+        "Remove and destroy infected plants early",
+        "Avoid planting near other whitefly-host crops"
+      ]
+    },
+    {
+      "disease": "Boll Rot",
+      "symptoms": [
+        "Bolls show water-soaked spots that turn brown/black and rot",
+        "Rotted bolls fail to open properly, lint gets discolored/stained",
+        "Common in humid weather, especially with insect damage providing entry points"
+      ],
+      "control": [
+        "Control boll-damaging insects (bollworms) which create entry wounds",
+        "Avoid overhead irrigation late in the season",
+        "Ensure good plant spacing for airflow",
+        "Remove and destroy infected bolls"
+      ]
+    }
+  ]
+}

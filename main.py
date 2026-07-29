@@ -60,7 +60,7 @@ async def startup_event():
                        "Place files in 'weights/' to enable Phase 2.")
 
 
-# --- Request and Response Schemas ---
+# Request and Response Schemas
 
 class ErrorResponse(BaseModel):
     detail: str = Field(..., description="Details regarding the failure case.")
@@ -100,7 +100,7 @@ class MetadataResponse(BaseModel):
     phase2_active: bool = Field(..., description="Indicates if Phase 2 disease model is loaded.")
 
 
-# --- Helpers ---
+# Helpers
 
 CROP_DISPLAY_MAP = {
     'apple': 'Apple', 'bean': 'Bean', 'bell_pepper': 'Bell Pepper',
@@ -148,7 +148,7 @@ def load_image(file_bytes: bytes) -> Image.Image:
         )
 
 
-# --- API Routes ---
+# API Routes
 
 @app.get("/")
 def read_root():
