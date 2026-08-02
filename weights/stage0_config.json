@@ -1,0 +1,40 @@
+{
+  "vocab": [
+    "leaf",
+    "plant leaf",
+    "tree leaf",
+    "grass leaf",
+    "blade leaf",
+    "crop leaf",
+    "leaf in hand",
+    "human hand",
+    "person",
+    "face",
+    "sky",
+    "soil",
+    "ground",
+    "mobile phone",
+    "shoe",
+    "clothing",
+    "vehicle",
+    "animal",
+    "tool",
+    "building",
+    "wall",
+    "sack of grain"
+  ],
+  "leaf_terms": [
+    "plant leaf",
+    "leaf",
+    "crop leaf",
+    "blade leaf",
+    "tree leaf",
+    "grass leaf",
+    "leaf in hand"
+  ],
+  "conf_threshold": 0.08,
+  "model_filename": "yoloe-11s-seg.pt",
+  "box_selection_rule": "leaf_priority",
+  "crop_padding_pct": 0.08,
+  "min_box_area_ratio": 0.02
+}
