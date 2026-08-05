@@ -1,7 +1,9 @@
 import io
 import json
 import logging
+import os
 import sys
+import tempfile
 from pathlib import Path
 from typing import List, Optional
 
@@ -64,9 +66,20 @@ model_manager = ModelManager()
 
 @app.on_event("startup")
 async def startup_event():
-    """Attempt to load both Phase 1 and Phase 2 models at startup."""
+    """Attempt to load Stage 0, Phase 1 and Phase 2 models at startup."""
     logger.info("Initializing models on startup...")
-    
+
+    s0_ok = model_manager.load_stage0()
+    if s0_ok:
+        logger.info("Stage 0 (YOLOE leaf gate) loaded successfully.")
+    else:
+        logger.warning(
+            "Stage 0 model files not found or failed to load. "
+            "Expected in 'weights/': yoloe-11s-seg.pt, leaf_vocab_embeddings.pt, "
+            "vocab_config.json, stage0_config.json. "
+            "Leaf gating will be SKIPPED until Stage 0 is available."
+        )
+
     p1_ok = model_manager.load_phase1()
     if p1_ok:
         logger.info("Phase 1 models loaded successfully.")
@@ -131,6 +144,14 @@ class SymptomsControlResponse(BaseModel):
     control: List[str] = Field(..., description="List of control/treatment measures in the requested language.")
 
 
+class Stage0GateResponse(BaseModel):
+    status: str = Field(..., description="Gate decision: 'leaf', 'rejected', or 'no_object_detected'.")
+    message: str = Field(..., description="Human-readable explanation of the gate decision.")
+    detected_object: Optional[str] = Field(None, description="What was detected when status is 'rejected'.")
+    confidence: Optional[float] = Field(None, description="Detection confidence (leaf or rejected object).")
+    box: Optional[List[int]] = Field(None, description="Padded bounding box [x1, y1, x2, y2] when status is 'leaf'.")
+
+
 # Helpers
 CROP_DISPLAY_MAP = {
     'apple': 'Apple', 'bean': 'Bean', 'bell_pepper': 'Bell Pepper',
@@ -180,34 +201,128 @@ def load_image(file_bytes: bytes) -> Image.Image:
 
 # API Routes
 
+
+def _save_upload_to_temp(file_bytes: bytes, suffix: str = ".jpg") -> str:
+    """Write raw upload bytes to a NamedTemporaryFile and return its path.
+    The caller is responsible for deleting the file after use.
+    """
+    fd, path = tempfile.mkstemp(suffix=suffix)
+    try:
+        with os.fdopen(fd, "wb") as f:
+            f.write(file_bytes)
+    except Exception:
+        os.unlink(path)
+        raise
+    return path
+
+
 @app.get("/")
 def read_root():
     return {
         "status": "online",
+        "stage0_active": model_manager.is_stage0_loaded(),
         "phase1_active": model_manager.is_phase1_loaded(),
         "phase2_active": model_manager.is_phase2_loaded()
     }
+
+
+@app.post(
+    "/api/v1/stage0-gate",
+    response_model=Stage0GateResponse,
+    responses={
+        503: {"model": ErrorResponse, "description": "Stage 0 model not loaded."},
+        400: {"model": ErrorResponse, "description": "Invalid image file."},
+    },
+    tags=["Stage 0"],
+)
+async def stage0_gate_endpoint(
+    file: UploadFile = File(..., description="Upload image to test the leaf gate."),
+):
+    """
+    **Stage 0 Endpoint: Leaf Gate (standalone test)**
+
+    Runs YOLOE open-vocabulary detection to decide whether the image contains a
+    leaf. Useful for integration testing and debugging Stage 0 independently.
+
+    Returns:
+    - `leaf` — image contains a detectable leaf; includes bounding box and confidence.
+    - `rejected` — non-leaf object detected with sufficient confidence.
+    - `no_object_detected` — nothing detected above the gate threshold.
+
+    > **Note:** ~89% leaf recall / ~1.1% false-positive rate (Open Images
+    > negative set). True production FP rate on farmer submissions is unverified.
+    """
+    if not model_manager.is_stage0_loaded():
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail="Stage 0 model is not loaded. Ensure yoloe-11s-seg.pt, "
+                   "leaf_vocab_embeddings.pt, vocab_config.json, and "
+                   "stage0_config.json are present in the weights/ folder.",
+        )
+
+    contents = await file.read()
+    # Validate image before passing to YOLOE
+    load_image(contents)  # raises 400 on decode failure
+
+    tmp_path = _save_upload_to_temp(contents)
+    try:
+        gate = model_manager.run_stage0(tmp_path)
+    except Exception as e:
+        logger.exception("Stage 0 inference failed")
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Stage 0 inference failed: {e}",
+        )
+    finally:
+        os.unlink(tmp_path)
+
+    if gate["status"] == "no_object_detected":
+        return Stage0GateResponse(
+            status="no_object_detected",
+            message="No object detected above the gate threshold. Please retake the photo.",
+        )
+    if gate["status"] == "rejected":
+        return Stage0GateResponse(
+            status="rejected",
+            message=f"Detected '{gate['detected_object']}', not a leaf. Please retake the photo.",
+            detected_object=gate["detected_object"],
+            confidence=gate["confidence"],
+        )
+    # status == "leaf"
+    return Stage0GateResponse(
+        status="leaf",
+        message="Leaf detected.",
+        confidence=gate["confidence"],
+        box=gate["box"],
+    )
+
 
 @app.post(
     "/api/v1/classify-crop",
     response_model=CropClassificationResponse,
     responses={
         503: {"model": ErrorResponse, "description": "Phase 1 model weights not loaded."},
+        422: {"model": ErrorResponse, "description": "Stage 0 gate rejected: not a leaf image."},
         400: {"model": ErrorResponse, "description": "Invalid image file uploaded."}
     }
 )
 async def classify_crop_endpoint(
     file: UploadFile = File(..., description="Upload leaf image file."),
     direct_resize: bool = Query(
-        False, 
+        False,
         description="If true, bypasses CenterCrop and resizes the entire image directly to 240x240."
     )
 ):
     """
     **Phase 1 Endpoint: Crop Classification**
-    
+
     Classifies the uploaded image into one of the 32 crop classes.
-    Requires Phase 1 weight file (`efficientnet_b1_crop_mini.pt` or `yolo11n_crop_mini.pt`) to be present in the `weights/` directory.
+    When Stage 0 (YOLOE leaf gate) is loaded, the image is screened first: non-leaf
+    images are rejected with HTTP 422 before reaching Stage 1 inference. If Stage 0 is
+    unavailable, the gate is skipped and classification proceeds directly.
+
+    Requires Phase 1 weight file (`stage1_dinov2_30class.pt` or
+    `efficientnet_b1_crop_mini.pt`) to be present in the `weights/` directory.
     """
     if not model_manager.is_phase1_loaded():
         # Re-check in case user dropped weights while server was running
@@ -218,7 +333,44 @@ async def classify_crop_endpoint(
             )
 
     contents = await file.read()
-    image = load_image(contents)
+
+    # ── Stage 0 Leaf Gate ──────────────────────────────────────────────────
+    # Runs YOLOE at conf=0.01; resolve_call() applies the 0.08 threshold.
+    # Gate is skipped gracefully if Stage 0 failed to load at startup.
+    image: Image.Image
+    if model_manager.is_stage0_loaded():
+        # Validate image first (raises 400 on bad bytes)
+        load_image(contents)
+        tmp_path = _save_upload_to_temp(contents)
+        try:
+            gate = model_manager.run_stage0(tmp_path)
+        except Exception as e:
+            logger.exception("Stage 0 inference error")
+            raise HTTPException(
+                status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+                detail=f"Stage 0 inference failed: {e}",
+            )
+        finally:
+            os.unlink(tmp_path)
+
+        if gate["status"] == "no_object_detected":
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail="No leaf detected. Please retake the photo.",
+            )
+        if gate["status"] == "rejected":
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail=f"Detected '{gate['detected_object']}' (confidence {gate['confidence']:.2%}), "
+                       "not a leaf. Please retake the photo.",
+            )
+        # status == "leaf" — use the padded crop for Stage 1
+        image = Image.fromarray(gate["crop"])  # gate['crop'] is RGB numpy array
+        logger.info(f"Stage 0 passed (leaf, conf={gate['confidence']}, box={gate['box']})")
+    else:
+        logger.debug("Stage 0 not loaded — skipping leaf gate.")
+        image = load_image(contents)
+    # ── End Stage 0 ────────────────────────────────────────────────────────
 
     try:
         predictions = model_manager.predict_crop(image, direct_resize=direct_resize, top_k=5)
@@ -250,6 +402,7 @@ async def classify_crop_endpoint(
         confidence=top_conf,
         all_predictions=all_preds_formatted
     )
+
 
 
 @app.post(

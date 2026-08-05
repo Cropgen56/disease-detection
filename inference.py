@@ -11,7 +11,7 @@ import torch
 import torch.nn as nn
 from PIL import Image
 import timm
-from ultralytics import YOLO
+from ultralytics import YOLO, YOLOE
 
 logger = logging.getLogger(__name__)
 
@@ -98,24 +98,90 @@ class DinoV2Classifier(nn.Module):
 class ModelManager:
     def __init__(self, weights_dir: Path = Path("weights")):
         self.weights_dir = weights_dir
-        
+
+        # Stage 0: Leaf Gate (YOLOE open-vocabulary)
+        self.stage0_model: Optional[YOLOE] = None
+        self.stage0_config: Optional[dict] = None
+        self._stage0_loaded: bool = False
+
         # Phase 1: Crop Classification
         self.phase1_model: Optional[nn.Module] = None
         self.phase1_yolo: Optional[YOLO] = None
         self.phase1_class_to_idx: Optional[Dict[str, int]] = None
         self.phase1_idx_to_class: Optional[Dict[int, str]] = None
-        
+
         # Phase 2: Disease Detection
         self.phase2_model: Optional[nn.Module] = None
         self.phase2_class_to_idx: Optional[Dict[str, int]] = None
         self.phase2_idx_to_class: Optional[Dict[int, str]] = None
         self.crop_disease_idx_map: Optional[Dict[str, List[int]]] = None
 
+    def is_stage0_loaded(self) -> bool:
+        return self._stage0_loaded
+
     def is_phase1_loaded(self) -> bool:
         return (self.phase1_model is not None or self.phase1_yolo is not None) and self.phase1_idx_to_class is not None
 
     def is_phase2_loaded(self) -> bool:
         return self.phase2_model is not None and self.phase2_idx_to_class is not None and self.crop_disease_idx_map is not None
+
+    def load_stage0(self) -> bool:
+        """
+        Load YOLOE model, pre-computed vocab embeddings, and stage0 config once at startup.
+
+        Per the notebook instructions, set_classes() is called once here so it
+        is NOT repeated per-request — it is relatively expensive.
+        """
+        model_path = self.weights_dir / "yoloe-11s-seg.pt"
+        embeddings_path = self.weights_dir / "leaf_vocab_embeddings.pt"
+        vocab_config_path = self.weights_dir / "vocab_config.json"
+        stage0_config_path = self.weights_dir / "stage0_config.json"
+
+        missing = [p for p in (model_path, embeddings_path, vocab_config_path, stage0_config_path) if not p.exists()]
+        if missing:
+            logger.warning(f"Stage 0 files not found: {[str(p) for p in missing]}")
+            return False
+
+        try:
+            logger.info(f"Loading Stage 0 YOLOE model from {model_path}")
+            model = YOLOE(str(model_path))
+
+            with open(vocab_config_path) as f:
+                vocab = json.load(f)["vocab"]
+
+            # Load pre-computed text embeddings — avoids running get_text_pe() on every start
+            text_pe = torch.load(str(embeddings_path), map_location="cpu")
+            model.set_classes(vocab, text_pe)
+
+            with open(stage0_config_path) as f:
+                stage0_config = json.load(f)
+
+            self.stage0_model = model
+            self.stage0_config = stage0_config
+            self._stage0_loaded = True
+            logger.info("Stage 0 YOLOE leaf gate loaded successfully.")
+            return True
+        except Exception as e:
+            logger.error(f"Failed to load Stage 0 model: {e}")
+            self._stage0_loaded = False
+            return False
+
+    def run_stage0(self, image_path: str) -> dict:
+        """
+        Run the Stage 0 leaf gate on a saved image file.
+
+        Returns one of:
+          {"status": "leaf", "crop": np.ndarray, "confidence": float, "box": [x1,y1,x2,y2]}
+          {"status": "rejected", "detected_object": str, "confidence": float}
+          {"status": "no_object_detected"}
+
+        Raises RuntimeError if Stage 0 is not loaded.
+        """
+        if not self._stage0_loaded:
+            raise RuntimeError("Stage 0 model is not loaded.")
+        # Import here to avoid circular import at module level
+        from stage0 import stage0_leaf_gate
+        return stage0_leaf_gate(image_path, self.stage0_model, self.stage0_config)
 
     def load_phase1(self) -> bool:
         """Loads Phase 1 crop classifier model weights and mappings."""
