@@ -185,7 +185,12 @@ class ModelManager:
 
     def load_phase1(self) -> bool:
         """Loads Phase 1 crop classifier model weights and mappings."""
-        dinov2_path = self.weights_dir / "stage1_dinov2_30class.pt"
+        # Prefer the latest v2 model (33 classes); fall back to the old 30-class file.
+        dinov2_path = (
+            self.weights_dir / "stage1_dinov2_v2.pt"
+            if (self.weights_dir / "stage1_dinov2_v2.pt").exists()
+            else self.weights_dir / "stage1_dinov2_30class.pt"
+        )
         effnet_path = self.weights_dir / "efficientnet_b1_crop_mini.pt"
         yolo_path = self.weights_dir / "yolo11n_crop_mini.pt"  # or user's best.pt renamed
 

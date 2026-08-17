@@ -34,6 +34,7 @@ class TestEndpointsRealServer(unittest.TestCase):
                 
                 # Check dynamic active status
                 has_phase1 = (
+                    os.path.exists("weights/stage1_dinov2_v2.pt") or
                     os.path.exists("weights/stage1_dinov2_30class.pt") or
                     os.path.exists("weights/efficientnet_b1_crop_mini.pt") or
                     os.path.exists("weights/yolo11n_crop_mini.pt")
@@ -53,6 +54,7 @@ class TestEndpointsRealServer(unittest.TestCase):
                 data = json.loads(response.read().decode())
                 
                 has_phase1 = (
+                    os.path.exists("weights/stage1_dinov2_v2.pt") or
                     os.path.exists("weights/stage1_dinov2_30class.pt") or
                     os.path.exists("weights/efficientnet_b1_crop_mini.pt") or
                     os.path.exists("weights/yolo11n_crop_mini.pt")
@@ -95,6 +97,7 @@ class TestEndpointsRealServer(unittest.TestCase):
         )
         
         has_phase1 = (
+            os.path.exists("weights/stage1_dinov2_v2.pt") or
             os.path.exists("weights/stage1_dinov2_30class.pt") or
             os.path.exists("weights/efficientnet_b1_crop_mini.pt") or
             os.path.exists("weights/yolo11n_crop_mini.pt")

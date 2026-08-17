@@ -154,16 +154,39 @@ class Stage0GateResponse(BaseModel):
 
 # Helpers
 CROP_DISPLAY_MAP = {
-    'apple': 'Apple', 'bean': 'Bean', 'bell_pepper': 'Bell Pepper',
-    'blackgram': 'Blackgram', 'blueberry': 'Blueberry', 'cherry': 'Cherry',
-    'chilli': 'Chilli', 'coconut': 'Coconut', 'coffee': 'Coffee',
-    'corn': 'Corn / Maize', 'cotton': 'Cotton', 'dragon_fruit': 'Dragon Fruit',
-    'grape': 'Grape', 'groundnut': 'Groundnut', 'jute': 'Jute',
-    'lemon': 'Lemon', 'mango': 'Mango', 'onion': 'Onion', 'orange': 'Orange',
-    'paddy': 'Paddy / Rice', 'peach': 'Peach', 'pineapple': 'Pineapple',
-    'potato': 'Potato', 'raspberry': 'Raspberry', 'snake_gourd': 'Snake Gourd',
-    'soybean': 'Soybean', 'squash': 'Squash', 'strawberry': 'Strawberry',
-    'sugarcane': 'Sugarcane', 'tea': 'Tea', 'tomato': 'Tomato', 'wheat': 'Wheat',
+    'apple': 'Apple',
+    'bean': 'Bean',
+    'bell_pepper': 'Bell Pepper',
+    'blackgram_greengram': 'Blackgram / Greengram',
+    'cherry': 'Cherry',
+    'chilli': 'Chilli',
+    'coconut': 'Coconut',
+    'coffee': 'Coffee',
+    'corn': 'Corn / Maize',
+    'cotton': 'Cotton',
+    'dragon_fruit': 'Dragon Fruit',
+    'eggplant': 'Eggplant / Brinjal',
+    'grape': 'Grape',
+    'groundnut': 'Groundnut',
+    'jute': 'Jute',
+    'lemon': 'Lemon',
+    'mango': 'Mango',
+    'okra': 'Okra / Bhindi',
+    'onion': 'Onion',
+    'orange': 'Orange',
+    'paddy': 'Paddy / Rice',
+    'peach': 'Peach',
+    'pineapple': 'Pineapple',
+    'potato': 'Potato',
+    'pumpkin': 'Pumpkin',
+    'raspberry': 'Raspberry',
+    'snake_gourd': 'Snake Gourd',
+    'soybean': 'Soybean',
+    'strawberry': 'Strawberry',
+    'sugarcane': 'Sugarcane',
+    'tea': 'Tea',
+    'tomato': 'Tomato',
+    'wheat': 'Wheat',
 }
 
 def format_crop_display(crop_name: str) -> str:
@@ -316,7 +339,7 @@ async def classify_crop_endpoint(
     """
     **Phase 1 Endpoint: Crop Classification**
 
-    Classifies the uploaded image into one of the 32 crop classes.
+    Classifies the uploaded image into one of the 33 crop classes.
     When Stage 0 (YOLOE leaf gate) is loaded, the image is screened first: non-leaf
     images are rejected with HTTP 422 before reaching Stage 1 inference. If Stage 0 is
     unavailable, the gate is skipped and classification proceeds directly.
