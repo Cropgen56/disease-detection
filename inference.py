@@ -421,11 +421,29 @@ class ModelManager:
             
         return results
 
+    def get_phase1_crops(self) -> List[str]:
+        """Returns all crop classes the Phase 1 classifier was trained on (33 crops)."""
+        if self.phase1_class_to_idx is not None:
+            return sorted(list(self.phase1_class_to_idx.keys()))
+        return []
+
     def get_supported_crops(self) -> List[str]:
-        """Returns the list of supported crops for Phase 2."""
+        """Returns the crops that have Phase 2 disease detection (subset of Phase 1 crops)."""
         if self.crop_disease_idx_map is not None:
             return sorted(list(self.crop_disease_idx_map.keys()))
         return []
+
+    def get_total_disease_count(self) -> int:
+        """Returns the total number of unique disease classes the Phase 2 model was trained on."""
+        if self.phase2_class_to_idx is not None:
+            return len(self.phase2_class_to_idx)
+        return 0
+
+    def get_phase1_crop_count(self) -> int:
+        """Returns the number of crop classes the Phase 1 model was trained on."""
+        if self.phase1_class_to_idx is not None:
+            return len(self.phase1_class_to_idx)
+        return 0
 
     def get_diseases_for_crop(self, crop_name: str) -> List[str]:
         """Returns the list of valid diseases for a given crop name."""

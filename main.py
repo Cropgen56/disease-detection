@@ -129,10 +129,19 @@ class CropMetadata(BaseModel):
     valid_diseases: List[str] = Field(..., description="Canonical disease names registered for this crop.")
 
 class MetadataResponse(BaseModel):
-    supported_crops_count: int = Field(..., description="Number of supported crops.")
-    supported_crops: List[str] = Field(..., description="List of supported crop identifiers.")
-    phase1_active: bool = Field(..., description="Indicates if Phase 1 crop model is loaded.")
-    phase2_active: bool = Field(..., description="Indicates if Phase 2 disease model is loaded.")
+    # Phase 1 — all classifiable crops
+    all_crops_count: int = Field(..., description="Total crops Phase 1 can classify.")
+    all_crops: List[str] = Field(..., description="All crop identifiers Phase 1 was trained on (33 crops).")
+    all_crops_display: dict = Field(..., description="Map of all crop identifiers to human-readable display names.")
+    # Phase 2 — subset with disease detection
+    disease_detection_crops_count: int = Field(..., description="Number of crops that also have Phase 2 disease detection.")
+    disease_detection_crops: List[str] = Field(..., description="Crop identifiers that support disease detection.")
+    # Model load status
+    stage0_active: bool = Field(..., description="Indicates if Stage 0 YOLOE leaf gate is loaded.")
+    phase1_active: bool = Field(..., description="Indicates if Phase 1 crop classifier is loaded.")
+    phase1_crop_count: int = Field(..., description="Number of crop classes the Phase 1 model was trained on.")
+    phase2_active: bool = Field(..., description="Indicates if Phase 2 disease detector is loaded.")
+    total_disease_classes: int = Field(..., description="Total unique disease classes in the Phase 2 model (across all crops).")
 
 # symptoms and control
 class SymptomsControlResponse(BaseModel):
@@ -511,18 +520,30 @@ async def detect_disease_endpoint(
     )
 
 
-@app.get("/api/v1/metadata", response_model=MetadataResponse)
+@app.get("/api/v1/metadata", response_model=MetadataResponse, tags=["Metadata"])
 async def get_metadata():
     """
     **Metadata Endpoint**
-    
-    Returns lists of supported crops, active phase statuses, and general configurations.
+
+    Returns:
+    - **all_crops** — all 33 crops Phase 1 can classify (crop name + display name)
+    - **disease_detection_crops** — subset of crops that also have Phase 2 disease detection
+    - Model load statuses for Stage 0, Phase 1, and Phase 2
+    - Total disease class count across all Phase 2 crops
     """
+    all_crops = model_manager.get_phase1_crops()
+    disease_crops = model_manager.get_supported_crops()
     return MetadataResponse(
-        supported_crops_count=len(model_manager.get_supported_crops()),
-        supported_crops=model_manager.get_supported_crops(),
+        all_crops_count=len(all_crops),
+        all_crops=all_crops,
+        all_crops_display={c: format_crop_display(c) for c in all_crops},
+        disease_detection_crops_count=len(disease_crops),
+        disease_detection_crops=disease_crops,
+        stage0_active=model_manager.is_stage0_loaded(),
         phase1_active=model_manager.is_phase1_loaded(),
-        phase2_active=model_manager.is_phase2_loaded()
+        phase1_crop_count=model_manager.get_phase1_crop_count(),
+        phase2_active=model_manager.is_phase2_loaded(),
+        total_disease_classes=model_manager.get_total_disease_count(),
     )
 
 @app.get(
