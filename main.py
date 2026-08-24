@@ -48,8 +48,8 @@ DISEASE_DATA_HI: dict = _load_json(_DATA_DIR / "crop_diseases_hindi.json")
 # Initialize FastAPI App
 app = FastAPI(
     title="Crop Disease Classification Backend",
-    description="Backend API for crop classification (Phase 1) and disease detection (Phase 2).",
-    version="1.2.0"
+    description="Backend API for crop classification (Phase 1) and disease detection (Phase 2) — v2 model: 203 disease classes across all 33 crops.",
+    version="1.3.0"
 )
 
 # Enable CORS for frontend flexibility

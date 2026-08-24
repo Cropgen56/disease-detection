@@ -1,0 +1,271 @@
+{
+  "apple": [
+    "apple__apple_scab",
+    "apple__black_rot",
+    "apple__cedar_apple_rust",
+    "apple__healthy"
+  ],
+  "bean": [
+    "bean__angular_leaf_spot",
+    "bean__cercospora_leaf_spot",
+    "bean__fungi_pathogens",
+    "bean__halo_blight",
+    "bean__healthy",
+    "bean__potassium_deficiency",
+    "bean__tobacco_caterpillar",
+    "bean__yellow_mosaic"
+  ],
+  "bell_pepper": [
+    "bell_pepper__bacterial_spot",
+    "bell_pepper__cercospora_leaf_spot",
+    "bell_pepper__healthy",
+    "bell_pepper__leaf_curl",
+    "bell_pepper__nutrition_deficiency",
+    "bell_pepper__powdery_mildew"
+  ],
+  "blackgram_greengram": [
+    "blackgram_greengram__anthracnose",
+    "blackgram_greengram__healthy",
+    "blackgram_greengram__leaf_crinckle",
+    "blackgram_greengram__powdery_mildew",
+    "blackgram_greengram__yellow_mosaic"
+  ],
+  "cherry": [
+    "cherry__brown_spot",
+    "cherry__healthy",
+    "cherry__leaf_scorch",
+    "cherry__powdery_mildew",
+    "cherry__purple_leaf_spot",
+    "cherry__shot_hole_disease"
+  ],
+  "chilli": [
+    "chilli__cerocospora",
+    "chilli__healthy",
+    "chilli__murda_complex",
+    "chilli__nutritional_deficiency",
+    "chilli__powdery_mildew"
+  ],
+  "coconut": [
+    "coconut__bud_root_dropping",
+    "coconut__bud_rot",
+    "coconut__gray_leaf_spot",
+    "coconut__leaf_rot",
+    "coconut__stem_bleeding"
+  ],
+  "coffee": [
+    "coffee__cercospora",
+    "coffee__healthy",
+    "coffee__miner",
+    "coffee__phoma",
+    "coffee__red_spider_mite",
+    "coffee__rust"
+  ],
+  "corn": [
+    "corn__cercospora_gray_leaf_spot",
+    "corn__common_rust",
+    "corn__fungal_leaf",
+    "corn__healthy",
+    "corn__holcus_leaf_spot",
+    "corn__northern_leaf_blight"
+  ],
+  "cotton": [
+    "cotton__alternaria",
+    "cotton__bacterial_blight",
+    "cotton__cercospora",
+    "cotton__curl_virus",
+    "cotton__grey_mildew",
+    "cotton__healthy",
+    "cotton__herbicide_growth_damage",
+    "cotton__leaf_hopper_jassids",
+    "cotton__leaf_reddening",
+    "cotton__leaf_variegation"
+  ],
+  "dragon_fruit": [
+    "dragon_fruit__anthracnose",
+    "dragon_fruit__brown_stem_spot",
+    "dragon_fruit__gray_blight",
+    "dragon_fruit__healthy",
+    "dragon_fruit__soft_rot",
+    "dragon_fruit__stem_canker"
+  ],
+  "eggplant": [
+    "eggplant__healthy",
+    "eggplant__insect_pest_disease",
+    "eggplant__leaf_spot_disease",
+    "eggplant__mosaic_virus_disease",
+    "eggplant__small_leaf_disease",
+    "eggplant__white_mold_disease",
+    "eggplant__wilt_disease"
+  ],
+  "grape": [
+    "grape__anthracnose_leaf",
+    "grape__black_rot",
+    "grape__downy_mildew_leaf",
+    "grape__esca_black_measles",
+    "grape__healthy",
+    "grape__leaf_blight_isariopsis_leaf_spot",
+    "grape__powdery_mildew_leaf",
+    "grape__shot_hole_leaf_disease"
+  ],
+  "groundnut": [
+    "groundnut__early_leaf_spot",
+    "groundnut__early_rust",
+    "groundnut__healthy",
+    "groundnut__late_leaf_spot",
+    "groundnut__nutrition_deficiency",
+    "groundnut__rust"
+  ],
+  "jute": [
+    "jute__cercospora_leaf_spot",
+    "jute__golden_mosaic",
+    "jute__healthy"
+  ],
+  "lemon": [
+    "lemon__algal_leaf_spot",
+    "lemon__black_spot",
+    "lemon__citrus_canker",
+    "lemon__citrus_pest",
+    "lemon__citrus_scab",
+    "lemon__greening",
+    "lemon__healthy",
+    "lemon__leaf_curl",
+    "lemon__yellow_spot"
+  ],
+  "mango": [
+    "mango__anthracnose",
+    "mango__bacterial_canker",
+    "mango__cutting_weevil",
+    "mango__die_back",
+    "mango__gall_midge",
+    "mango__healthy",
+    "mango__powdery_mildew",
+    "mango__sooty_mould"
+  ],
+  "okra": [
+    "okra__alternaria_leaf_spot",
+    "okra__cercospora_leaf_spot",
+    "okra__downy_mildew",
+    "okra__healthy",
+    "okra__leaf_curly_virus",
+    "okra__phyllosticta_leaf_spot"
+  ],
+  "onion": [
+    "onion__healthy",
+    "onion__iris_yellow_virus",
+    "onion__purple_blotch",
+    "onion__stemphylium_collectotrichum_blight"
+  ],
+  "orange": [
+    "orange__foliage_damaged",
+    "orange__haunglongbing_citrus_greening",
+    "orange__healthy",
+    "orange__mealybugs_disease"
+  ],
+  "paddy": [
+    "paddy__bacterial_leaf_blight",
+    "paddy__bacterial_leaf_streak",
+    "paddy__bacterial_panicle_blight",
+    "paddy__blast",
+    "paddy__brown_spot",
+    "paddy__dead_heart",
+    "paddy__downy_mildew",
+    "paddy__healthy",
+    "paddy__hispa",
+    "paddy__tungro"
+  ],
+  "peach": [
+    "peach__bacterial_spot",
+    "peach__healthy"
+  ],
+  "pineapple": [
+    "pineapple__fusarium",
+    "pineapple__healthy",
+    "pineapple__leaf_blight",
+    "pineapple__mealybug_wilt"
+  ],
+  "potato": [
+    "potato__early_blight",
+    "potato__fungal_diseases",
+    "potato__healthy",
+    "potato__late_blight",
+    "potato__plant_pests",
+    "potato__potato_cyst_nematode",
+    "potato__potato_virus"
+  ],
+  "pumpkin": [
+    "pumpkin__bacterial_leaf_spot",
+    "pumpkin__downy_mildew",
+    "pumpkin__healthy",
+    "pumpkin__mosaic_disease",
+    "pumpkin__powdery_mildew"
+  ],
+  "raspberry": [
+    "raspberry__healthy"
+  ],
+  "snake_gourd": [
+    "snake_gourd__anthracnose",
+    "snake_gourd__healthy",
+    "snake_gourd__yellow"
+  ],
+  "soybean": [
+    "soybean__bacterial_blight",
+    "soybean__brown_spot",
+    "soybean__dry_leaf",
+    "soybean__ferrugen_rust",
+    "soybean__healthy",
+    "soybean__mosaic_virus",
+    "soybean__powdery_mildew",
+    "soybean__septoria_brown_spot",
+    "soybean__southern_blight",
+    "soybean__sudden_death_syndrome",
+    "soybean__vein_necrosis",
+    "soybean__yellow_mosaic"
+  ],
+  "strawberry": [
+    "strawberry__angular_leafspot",
+    "strawberry__healthy",
+    "strawberry__leaf_spot",
+    "strawberry__powdery_mildew_leaf"
+  ],
+  "sugarcane": [
+    "sugarcane__banded_chlorosis",
+    "sugarcane__brown_spot",
+    "sugarcane__brownrust",
+    "sugarcane__dried_leaves",
+    "sugarcane__grassy_shoot",
+    "sugarcane__healthy",
+    "sugarcane__pokkah_boeng",
+    "sugarcane__sett_rot",
+    "sugarcane__smut",
+    "sugarcane__viral_disease",
+    "sugarcane__yellow_leaf"
+  ],
+  "tea": [
+    "tea__blister_blight",
+    "tea__brown_blight",
+    "tea__healthy",
+    "tea__leaf_red_rust",
+    "tea__red_spider_mite",
+    "tea__tea_mosquito_bug"
+  ],
+  "tomato": [
+    "tomato__bacterial_spot",
+    "tomato__early_blight",
+    "tomato__fusarium_wilt",
+    "tomato__healthy",
+    "tomato__late_blight",
+    "tomato__leaf_miner",
+    "tomato__leaf_mold",
+    "tomato__mosaic_virus",
+    "tomato__septoria_leaf_spot",
+    "tomato__spider_mites",
+    "tomato__target_spot",
+    "tomato__verticillium_wilt",
+    "tomato__yellow_leaf_curl_virus"
+  ],
+  "wheat": [
+    "wheat__healthy",
+    "wheat__septoria",
+    "wheat__stripe_rust"
+  ]
+}
